@@ -7,12 +7,10 @@ init({
 	scale: 2,
 });
 
+loadSprite('player', 'assets/images/player.png');
+
 scene('main', () => {
-	//loadSprite("froggy", "player);
-
-	const player = add([rect(100, 100), pos(100, 100)]);
-
-	// console.log(player);
+	const player = add([sprite('player'), pos(100, 100)]);
 
 	keyDown('w', () => {
 		player.pos.y -= speed;
