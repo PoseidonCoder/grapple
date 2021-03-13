@@ -1,34 +1,48 @@
-kaboom.import();
-
-const speed = 2;
-
-init({
-	fullscreen: true,
-	scale: 2,
+const gameScene = new Phaser.Scene('game');
+const game = new Phaser.Game({
+	width: 500,
+	height: 500,
+	scene: [gameScene],
 });
 
-loadSprite('player', 'assets/images/player.png');
+gameScene.init = function () {
+	this.speed = 3;
+};
 
-scene('main', () => {
-	const player = add([sprite('player'), pos(100, 100)]);
+gameScene.preload = function () {
+	this.load.image('player', 'assets/images/player.png');
+};
 
-	keyDown('w', () => {
-		player.pos.y -= speed;
-	});
+gameScene.create = function () {
+	this.player = this.add.sprite(100, 100, 'player');
+	this.player.setScale(3);
 
-	keyDown('s', () => {
-		player.pos.y += speed;
-	});
+	this.upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+	this.downKey = this.input.keyboard.addKey(
+		Phaser.Input.Keyboard.KeyCodes.DOWN
+	);
+	this.leftKey = this.input.keyboard.addKey(
+		Phaser.Input.Keyboard.KeyCodes.LEFT
+	);
+	this.rightKey = this.input.keyboard.addKey(
+		Phaser.Input.Keyboard.KeyCodes.RIGHT
+	);
+};
 
-	keyDown('a', () => {
-		player.pos.x -= speed;
-	});
+gameScene.update = function () {
+	if (this.upKey.isDown) {
+		this.player.y -= this.speed;
+	}
 
-	keyDown('d', () => {
-		player.pos.x += speed;
-	});
+	if (this.downKey.isDown) {
+		this.player.y += this.speed;
+	}
 
-	add([player]);
-});
+	if (this.leftKey.isDown) {
+		this.player.x -= this.speed;
+	}
 
-start('main');
+	if (this.rightKey.isDown) {
+		this.player.x += this.speed;
+	}
+};
