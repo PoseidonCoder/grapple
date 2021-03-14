@@ -3,8 +3,8 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x, y, 'bullet');
 
 		this.scene = scene;
-		this.sceneWidth = this.scene.cameras.main.centerY;
-		this.sceneHeight = this.scene.cameras.main.centerX;
+		this.sceneWidth = this.scene.cameras.main.centerY * 2;
+		this.sceneHeight = this.scene.cameras.main.centerX * 2;
 	}
 
 	fire(x, y) {
