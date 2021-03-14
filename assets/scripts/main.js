@@ -2,6 +2,12 @@ const gameScene = new Phaser.Scene('game');
 const game = new Phaser.Game({
 	width: 500,
 	height: 500,
+	physics: {
+		default: 'arcade',
+		arcade: {
+			debug: true,
+		},
+	},
 	scene: [gameScene],
 });
 
@@ -14,7 +20,7 @@ gameScene.preload = function () {
 };
 
 gameScene.create = function () {
-	this.player = this.add.sprite(100, 100, 'player');
+	this.player = this.physics.add.sprite(100, 100, 'player');
 	this.player.setScale(3);
 
 	this.upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
@@ -45,4 +51,16 @@ gameScene.update = function () {
 	if (this.rightKey.isDown) {
 		this.player.x += this.speed;
 	}
+
+	this.input.on('pointermove', (event) => {
+		const angle =
+			Phaser.Math.RAD_TO_DEG *
+			Phaser.Math.Angle.Between(
+				this.player.x,
+				this.player.y,
+				event.x,
+				event.y
+			);
+		this.player.setAngle(angle);
+	});
 };
