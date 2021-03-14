@@ -14,8 +14,14 @@ class gameScene extends Phaser.Scene {
 	create() {
 		this.start = this.getTime();
 
-		this.player = this.add.sprite(100, 100, 'player');
+        this.physics.world.setBounds(0, 0, 500, 500);
+		this.cameras.main.setBounds(0, 0, 500, 500);
+
+		this.player = this.physics.add.sprite(100, 100, 'player');
 		this.player.setScale(3);
+
+		this.player.setCollideWorldBounds(true);
+		this.cameras.main.startFollow(this.player, true);
 
 		this.bulletGroup = new bulletGroup(this);
 
@@ -76,18 +82,22 @@ class gameScene extends Phaser.Scene {
 	update() {
 		if (this.upKey.isDown || this.wKey.isDown) {
 			this.player.y -= this.speed;
+			this.cameras.main.scrollY -= this.speed;
 		}
 
 		if (this.downKey.isDown || this.sKey.isDown) {
 			this.player.y += this.speed;
+			this.cameras.main.scrollY += this.speed;
 		}
 
 		if (this.leftKey.isDown || this.aKey.isDown) {
 			this.player.x -= this.speed;
+			this.cameras.main.scrollX -= this.speed;
 		}
 
 		if (this.rightKey.isDown || this.dKey.isDown) {
 			this.player.x += this.speed;
+			this.cameras.main.scrollX += this.speed;
 		}
 
 		if (this.input.activePointer.isDown && this.showDelta() > 17) {
