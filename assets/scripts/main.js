@@ -33,6 +33,18 @@ gameScene.create = function () {
 	this.rightKey = this.input.keyboard.addKey(
 		Phaser.Input.Keyboard.KeyCodes.RIGHT
 	);
+
+	this.input.on('pointermove', (event) => {
+		const angle =
+			Phaser.Math.RAD_TO_DEG * // converts the radians to degress
+			Phaser.Math.Angle.Between( // calculates the angle in radians
+				this.player.x,
+				this.player.y,
+				event.x,
+				event.y
+			);
+		this.player.setAngle(angle);
+	});
 };
 
 gameScene.update = function () {
@@ -51,16 +63,4 @@ gameScene.update = function () {
 	if (this.rightKey.isDown) {
 		this.player.x += this.speed;
 	}
-
-	this.input.on('pointermove', (event) => {
-		const angle =
-			Phaser.Math.RAD_TO_DEG *
-			Phaser.Math.Angle.Between(
-				this.player.x,
-				this.player.y,
-				event.x,
-				event.y
-			);
-		this.player.setAngle(angle);
-	});
 };
