@@ -18,14 +18,33 @@ class gameScene extends Phaser.Scene {
 		this.upKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.UP
 		);
+
+		this.wKey = this.input.keyboard.addKey(
+			Phaser.Input.Keyboard.KeyCodes.W
+		);
+
 		this.downKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.DOWN
 		);
+
+		this.sKey = this.input.keyboard.addKey(
+			Phaser.Input.Keyboard.KeyCodes.S
+		);
+
 		this.leftKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.LEFT
 		);
+
+		this.aKey = this.input.keyboard.addKey(
+			Phaser.Input.Keyboard.KeyCodes.A
+		);
+
 		this.rightKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.RIGHT
+		);
+
+		this.dKey = this.input.keyboard.addKey(
+			Phaser.Input.Keyboard.KeyCodes.D
 		);
 
 		this.input.on('pointerdown', (event) => {
@@ -47,19 +66,19 @@ class gameScene extends Phaser.Scene {
 	}
 
 	update() {
-		if (this.upKey.isDown) {
+		if (this.upKey.isDown || this.wKey.isDown) {
 			this.player.y -= this.speed;
 		}
 
-		if (this.downKey.isDown) {
+		if (this.downKey.isDown || this.sKey.isDown) {
 			this.player.y += this.speed;
 		}
 
-		if (this.leftKey.isDown) {
+		if (this.leftKey.isDown || this.aKey.isDown) {
 			this.player.x -= this.speed;
 		}
 
-		if (this.rightKey.isDown) {
+		if (this.rightKey.isDown || this.dKey.isDown) {
 			this.player.x += this.speed;
 		}
 	}
