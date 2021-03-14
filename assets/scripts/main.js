@@ -1,7 +1,9 @@
 class gameScene extends Phaser.Scene {
 	constructor() {
 		super();
+
 		this.speed = 3;
+		this.sprintAcceleration = 2;
 	}
 
 	preload() {
@@ -46,6 +48,14 @@ class gameScene extends Phaser.Scene {
 		this.dKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.D
 		);
+
+		this.input.keyboard.on('keydown-SHIFT', (event)=> {
+			this.speed += this.sprintAcceleration;
+		});
+
+		this.input.keyboard.on('keyup-SHIFT', (event)=> {
+			this.speed -= this.sprintAcceleration;
+		});
 
 		this.input.on('pointerdown', (event) => {
 			this.bulletGroup.fire(this.player.x, this.player.y - 20);
