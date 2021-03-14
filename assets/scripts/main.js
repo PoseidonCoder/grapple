@@ -12,6 +12,8 @@ class gameScene extends Phaser.Scene {
 	}
 
 	create() {
+		this.start = this.getTime();
+
 		this.player = this.add.sprite(100, 100, 'player');
 		this.player.setScale(3);
 
@@ -57,10 +59,6 @@ class gameScene extends Phaser.Scene {
 			this.speed -= this.sprintAcceleration;
 		});
 
-		this.input.on('pointerdown', (event) => {
-			this.bulletGroup.fire(this.player.x, this.player.y - 20);
-		});
-
 		this.input.on('pointermove', (event) => {
 			const angle =
 				Phaser.Math.RAD_TO_DEG * // converts the radians to degress
@@ -91,6 +89,20 @@ class gameScene extends Phaser.Scene {
 		if (this.rightKey.isDown || this.dKey.isDown) {
 			this.player.x += this.speed;
 		}
+
+		if (this.input.activePointer.isDown && this.showDelta() > 17) {
+			this.bulletGroup.fire(this.player.x, this.player.y - 20);
+		}
+	}
+
+	getTime() {
+		return new Date().getTime();
+    }
+
+	showDelta() { 
+        let elapsed = this.getTime() - this.start;
+        this.start = this.getTime();
+		return elapsed;
 	}
 }
 
