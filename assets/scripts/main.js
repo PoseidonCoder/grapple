@@ -1,3 +1,39 @@
+class bullet extends Phaser.Physics.Arcade.Sprite {
+	constructor(scene, x, y) {
+		super(scene, x, y, 'bullet');
+	}
+
+	fire(x, y) {
+		this.body.reset(x, y);
+
+		this.setActive(true);
+		this.setVisible(true);
+	}
+}
+
+class bulletGroup extends Phaser.Physics.Arcade.Group {
+	constructor(scene) {
+		super(scene.physics.world, scene);
+
+		this.createMultiple({
+			frameQuantity: 30,
+			key: 'bullet',
+			setScale: {
+				x: 0.3,
+				y: 0.3,
+			},
+			active: false,
+			visible: false,
+			classType: bullet,
+		});
+	}
+
+	fire(x, y) {
+		const bullet = this.getFirstDead(false);
+		if (bullet) bullet.fire(x, y);
+	}
+}
+
 class gameScene extends Phaser.Scene {
 	constructor() {
 		super();
@@ -6,11 +42,14 @@ class gameScene extends Phaser.Scene {
 
 	preload() {
 		this.load.image('player', 'assets/images/player.png');
+		this.load.image('bullet', 'assets/images/bullet.png');
 	}
 
 	create() {
 		this.player = this.physics.add.sprite(100, 100, 'player');
 		this.player.setScale(3);
+
+		this.bulletGroup = new bulletGroup(this);
 
 		this.upKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.UP
@@ -24,6 +63,10 @@ class gameScene extends Phaser.Scene {
 		this.rightKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.RIGHT
 		);
+
+		this.input.on('pointerdown', (event) => {
+			this.bulletGroup.fire(this.player.x, this.player.y - 20);
+		});
 
 		this.input.on('pointermove', (event) => {
 			const angle =
@@ -64,7 +107,7 @@ const game = new Phaser.Game({
 	physics: {
 		default: 'arcade',
 		arcade: {
-			debug: true,
+			debug: false,
 		},
 	},
 	scene: [gameScene],
