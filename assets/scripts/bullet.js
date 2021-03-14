@@ -10,6 +10,8 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 	fire(x, y) {
 		this.body.reset(x, y);
 
+        this.angle = this.scene.player.angle;
+
 		this.scene.physics.moveTo(
 			this,
 			this.scene.input.mousePointer.x,
