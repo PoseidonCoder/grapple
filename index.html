@@ -6,12 +6,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.53.1/phaser.min.js"></script>
-		<link rel="stylesheet" href="assets/styles/main.css">
+		<link rel="stylesheet" href="assets/styles/main.css" />
 
 		<title>grapple</title>
 	</head>
 	<body>
-		<noscript>You have disabled Javascript for this website, please enable it so that this site can work properly</noscript>
+		<noscript>
+			You have disabled Javascript for this website, please enable it so
+			that this site can work properly
+		</noscript>
+
+		<!-- firebase core -->
+		<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+		<!-- firebase SDKs -->
+		<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+
+		<script>
+			firebase.initializeApp({
+				apiKey: 'AIzaSyDXU6Lw0B-Ma_LagtQ4OF-lmmwaAeZGBB8',
+				authDomain: 'grapple-ecd1c.firebaseapp.com',
+				projectId: 'grapple-ecd1c',
+				storageBucket: 'grapple-ecd1c.appspot.com',
+				messagingSenderId: '874102344684',
+				appId: '1:874102344684:web:5012c4dedb571774974ec9',
+				measurementId: 'G-7DFTRDPTLF',
+				databaseURL: "https://grapple-ecd1c-default-rtdb.firebaseio.com/",
+			});
+			
+			firebase.analytics();
+		</script>
+
 		<script src="assets/scripts/bullet.js"></script>
 		<script src="assets/scripts/main.js"></script>
 	</body>
