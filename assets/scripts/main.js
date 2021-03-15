@@ -9,10 +9,6 @@ firebase.initializeApp({
 	databaseURL: 'https://grapple-ecd1c-default-rtdb.firebaseio.com/',
 });
 
-const db = firebase.database();
-const players = db.ref('players');
-let player;
-
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
