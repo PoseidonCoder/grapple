@@ -43,7 +43,7 @@ class bulletGroup extends Phaser.Physics.Arcade.Group {
 		super(scene.physics.world, scene);
 
 		this.createMultiple({
-			frameQuantity: 30,
+			frameQuantity: 40,
 			key: 'bullet',
 			setScale: {
 				x: 0.3,
@@ -51,7 +51,6 @@ class bulletGroup extends Phaser.Physics.Arcade.Group {
 			},
 			active: false,
 			visible: false,
-			runChildUpdate: true,
 			classType: bullet,
 		});
 	}

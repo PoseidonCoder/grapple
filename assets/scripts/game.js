@@ -101,8 +101,9 @@ class gameScene extends Phaser.Scene {
 			this.cameras.main.scrollX += this.speed;
 		}
 
-		if (this.input.activePointer.isDown && this.showDelta() > 17) {
+		if (this.input.activePointer.isDown && this.showDelta() > 100) {
 			this.bulletGroup.fire(this.player.x, this.player.y - 20);
+		    this.start = this.getTime();
 		}
 	}
 
@@ -111,8 +112,6 @@ class gameScene extends Phaser.Scene {
 	}
 
 	showDelta() {
-		let elapsed = this.getTime() - this.start;
-		this.start = this.getTime();
-		return elapsed;
+		return this.getTime() - this.start;
 	}
 }
