@@ -1,120 +1,32 @@
-class gameScene extends Phaser.Scene {
-	constructor() {
-		super();
+firebase.initializeApp({
+	apiKey: 'AIzaSyDXU6Lw0B-Ma_LagtQ4OF-lmmwaAeZGBB8',
+	authDomain: 'grapple-ecd1c.firebaseapp.com',
+	projectId: 'grapple-ecd1c',
+	storageBucket: 'grapple-ecd1c.appspot.com',
+	messagingSenderId: '874102344684',
+	appId: '1:874102344684:web:5012c4dedb571774974ec9',
+	measurementId: 'G-7DFTRDPTLF',
+	databaseURL: 'https://grapple-ecd1c-default-rtdb.firebaseio.com/',
+});
 
-		this.speed = 3;
-		this.sprintAcceleration = 2;
-	}
+const db = firebase.database();
+const players = db.ref('players');
+let player;
 
-	preload() {
-		this.load.image('player', 'assets/images/player.png');
-		this.load.image('bullet', 'assets/images/bullet.png');
-	}
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-	create() {
-		this.start = this.getTime();
-
-        this.physics.world.setBounds(0, 0, 500, 500);
-		this.cameras.main.setBounds(0, 0, 500, 500);
-
-		this.player = this.physics.add.sprite(100, 100, 'player');
-		this.player.setScale(3);
-
-		this.player.setCollideWorldBounds(true);
-		this.cameras.main.startFollow(this.player, true);
-
-		this.bulletGroup = new bulletGroup(this);
-
-		this.upKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.UP
-		);
-
-		this.wKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.W
-		);
-
-		this.downKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.DOWN
-		);
-
-		this.sKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.S
-		);
-
-		this.leftKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.LEFT
-		);
-
-		this.aKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.A
-		);
-
-		this.rightKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.RIGHT
-		);
-
-		this.dKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.D
-		);
-
-		this.input.keyboard.on('keydown-SHIFT', (event)=> {
-			this.speed += this.sprintAcceleration;
-		});
-
-		this.input.keyboard.on('keyup-SHIFT', (event)=> {
-			this.speed -= this.sprintAcceleration;
-		});
-
-		this.input.on('pointermove', (event) => {
-			const angle =
-				Phaser.Math.RAD_TO_DEG * // converts the radians to degress
-				Phaser.Math.Angle.Between(
-					// calculates the angle in radians
-					this.player.x,
-					this.player.y,
-					event.x,
-					event.y
-				);
-			this.player.setAngle(angle);
-		});
-	}
-
-	update() {
-		if (this.upKey.isDown || this.wKey.isDown) {
-			this.player.y -= this.speed;
-			this.cameras.main.scrollY -= this.speed;
-		}
-
-		if (this.downKey.isDown || this.sKey.isDown) {
-			this.player.y += this.speed;
-			this.cameras.main.scrollY += this.speed;
-		}
-
-		if (this.leftKey.isDown || this.aKey.isDown) {
-			this.player.x -= this.speed;
-			this.cameras.main.scrollX -= this.speed;
-		}
-
-		if (this.rightKey.isDown || this.dKey.isDown) {
-			this.player.x += this.speed;
-			this.cameras.main.scrollX += this.speed;
-		}
-
-		if (this.input.activePointer.isDown && this.showDelta() > 17) {
-			this.bulletGroup.fire(this.player.x, this.player.y - 20);
-		}
-	}
-
-	getTime() {
-		return new Date().getTime();
-    }
-
-	showDelta() { 
-        let elapsed = this.getTime() - this.start;
-        this.start = this.getTime();
-		return elapsed;
-	}
+function signIn() {
+	auth.signInWithPopup(provider)
+		.then((result) => {
+			console.log(result);
+		})
+		.catch(window.alert);
 }
+
+document.getElementById('googleSignIn').onclick = signIn;
+
+firebase.analytics();
 
 const game = new Phaser.Game({
 	width: 500,
