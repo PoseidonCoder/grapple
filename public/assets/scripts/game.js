@@ -17,6 +17,7 @@ class gameScene extends Phaser.Scene {
 
 		this.players = this.physics.add.group();
 		this.socket.on('newPlayer', (player) => {
+			console.log("NEW PLAYER")
 			const newPlayer = this.add.sprite(
 				player.pos.x,
 				player.pos.y,
@@ -53,7 +54,7 @@ class gameScene extends Phaser.Scene {
 		this.physics.world.setBounds(0, 0, 500, 500);
 		this.cameras.main.setBounds(0, 0, 500, 500);
 
-		this.player = this.physics.add.sprite(100, 100, 'player');
+		this.player = this.physics.add.sprite(Math.random() * 500, Math.random() * 500, 'player');
 		this.player.setScale(3);
 		this.player.setCollideWorldBounds(true);
 		this.cameras.main.startFollow(this.player, true);
