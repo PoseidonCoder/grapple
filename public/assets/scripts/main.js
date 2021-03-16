@@ -9,19 +9,6 @@ firebase.initializeApp({
 	databaseURL: 'https://grapple-ecd1c-default-rtdb.firebaseio.com/',
 });
 
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-
-function signIn() {
-	auth.signInWithPopup(provider)
-		.then((result) => {
-			console.log(result);
-		})
-		.catch(window.alert);
-}
-
-document.getElementById('googleSignIn').onclick = signIn;
-
 firebase.analytics();
 
 const game = new Phaser.Game({
