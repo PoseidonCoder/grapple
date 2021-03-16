@@ -33,7 +33,9 @@ class gameScene extends Phaser.Scene {
 				if (id != this.socket.id) {
 					this.players.getChildren().forEach((player) => {
 						if (player.id == id) {
-							player.setPosition(players[id].x, players[id].y);
+							const playerPos = players[id];
+							player.setPosition(playerPos.x, playerPos.y);
+							player.setAngle(playerPos.angle);
 						}
 					});
 				}
@@ -138,6 +140,7 @@ class gameScene extends Phaser.Scene {
 		this.socket.emit('player', {
 			x: this.player.x,
 			y: this.player.y,
+			angle: this.player.angle,
 		});
 	}
 
