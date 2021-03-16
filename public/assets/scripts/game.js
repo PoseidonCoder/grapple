@@ -42,6 +42,14 @@ class gameScene extends Phaser.Scene {
 			});
 		});
 
+		this.socket.on('playerLeft', (id) => {
+			this.players.getChildren().forEach((player) => {
+				if (player.id == id) {
+					player.destroy();
+				}
+			});
+		});
+
 		this.physics.world.setBounds(0, 0, 500, 500);
 		this.cameras.main.setBounds(0, 0, 500, 500);
 

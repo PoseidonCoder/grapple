@@ -33,6 +33,11 @@ io.on('connection', (socket) => {
 
 		socket.broadcast.emit('players', players);
 	});
+
+    socket.on("disconnect", ()=> {
+        delete players[socket.id];
+        socket.broadcast.emit("playerLeft", socket.id);
+    })
 });
 
 app.use(express.static('public'));
