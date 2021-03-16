@@ -20,7 +20,7 @@ io.on('connection', (socket) => {
 			y: player.y,
 		};
 
-		io.emit('newPlayer', {
+		socket.broadcast.emit('newPlayer', {
 			pos: players[socket.id],
 			id: socket.id,
 		});
