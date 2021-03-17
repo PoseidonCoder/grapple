@@ -11,6 +11,7 @@ class gameScene extends Phaser.Scene {
 	preload() {
 		this.load.image('player', 'assets/images/player.png');
 		this.load.image('bullet', 'assets/images/bullet.png');
+		this.load.audio('pew', 'assets/sounds/pew.ogg');
 	}
 
 	create() {
@@ -90,6 +91,9 @@ class gameScene extends Phaser.Scene {
 			);
 		});
 
+		this.pew = this.sound.add('pew', 0.4);
+		this.pew.allowMultiple = true; // ineffective
+
 		this.upKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.UP
 		);
@@ -166,6 +170,7 @@ class gameScene extends Phaser.Scene {
 		}
 
 		if (this.input.activePointer.isDown && this.showDelta() > 100) {
+			this.pew.play();
 			this.myBullets.fire(this.player.x, this.player.y - 20);
 			this.start = this.getTime();
 		}
