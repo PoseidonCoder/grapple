@@ -42,8 +42,6 @@ io.on('connection', (socket) => {
 		players[socket.id].x = player.x;
 		players[socket.id].y = player.y;
 		players[socket.id].angle = player.angle;
-
-		socket.broadcast.emit('players', players);
 	});
 
 	socket.on('disconnect', () => {
@@ -51,6 +49,10 @@ io.on('connection', (socket) => {
 		socket.broadcast.emit('playerLeft', socket.id);
 	});
 });
+
+setInterval(()=> {
+	io.emit('players', players);
+}, 1000 / 24);
 
 app.use(express.static('public'));
 http.listen(8080);
