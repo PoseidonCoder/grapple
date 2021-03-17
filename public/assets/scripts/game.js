@@ -55,19 +55,7 @@ class gameScene extends Phaser.Scene {
 		this.physics.world.setBounds(0, 0, 500, 500);
 		this.cameras.main.setBounds(0, 0, 500, 500);
 
-		this.player = this.physics.add.sprite(
-			Math.random() * 500,
-			Math.random() * 500,
-			'player'
-		);
-		this.player.setScale(3);
-		this.player.setCollideWorldBounds(true);
-		this.cameras.main.startFollow(this.player, true);
-
-		socket.emit('newPlayer', {
-			x: this.player.x,
-			y: this.player.y,
-		});
+		this.player = new Player(this);
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
