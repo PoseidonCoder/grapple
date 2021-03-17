@@ -79,6 +79,7 @@ class gameScene extends Phaser.Scene {
 
 			newBullet.id = bullet.id;
 			newBullet.setScale(0.3);
+			newBullet.setAngle(bullet.pos.angle);
 
 			this.theirBullets.add(newBullet);
 			this.physics.moveTo(
