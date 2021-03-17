@@ -8,6 +8,16 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	fire(x, y) {
+		socket.emit('newBullet', {
+			initial: {
+				x,
+				y,
+			},
+			end: {
+				x: this.scene.input.mousePointer.x,
+				y: this.scene.input.mousePointer.y,	
+			}
+		});
 		this.body.reset(x, y);
 
 		this.angle = this.scene.player.angle;

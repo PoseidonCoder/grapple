@@ -1,10 +1,11 @@
 class gameScene extends Phaser.Scene {
 	constructor() {
 		super();
+	}
 
+	init() {
 		this.speed = 3;
 		this.sprintAcceleration = 2;
-		this.socket = io();
 	}
 
 	preload() {
@@ -16,8 +17,7 @@ class gameScene extends Phaser.Scene {
 		this.start = this.getTime();
 
 		this.players = this.physics.add.group();
-		this.socket.on('newPlayer', (player) => {
-			console.log("NEW PLAYER")
+		socket.on('newPlayer', (player) => {
 			const newPlayer = this.add.sprite(
 				player.pos.x,
 				player.pos.y,
@@ -29,9 +29,9 @@ class gameScene extends Phaser.Scene {
 			this.players.add(newPlayer);
 		});
 
-		this.socket.on('players', (players) => {
+		socket.on('players', (players) => {
 			Object.keys(players).forEach((id) => {
-				if (id != this.socket.id) {
+				if (id != socket.id) {
 					this.players.getChildren().forEach((player) => {
 						if (player.id == id) {
 							const playerPos = players[id];
@@ -43,7 +43,7 @@ class gameScene extends Phaser.Scene {
 			});
 		});
 
-		this.socket.on('playerLeft', (id) => {
+		socket.on('playerLeft', (id) => {
 			this.players.getChildren().forEach((player) => {
 				if (player.id == id) {
 					player.destroy();
@@ -54,17 +54,40 @@ class gameScene extends Phaser.Scene {
 		this.physics.world.setBounds(0, 0, 500, 500);
 		this.cameras.main.setBounds(0, 0, 500, 500);
 
-		this.player = this.physics.add.sprite(Math.random() * 500, Math.random() * 500, 'player');
+		this.player = this.physics.add.sprite(
+			Math.random() * 500,
+			Math.random() * 500,
+			'player'
+		);
 		this.player.setScale(3);
 		this.player.setCollideWorldBounds(true);
 		this.cameras.main.startFollow(this.player, true);
 
-		this.socket.emit('newPlayer', {
+		socket.emit('newPlayer', {
 			x: this.player.x,
 			y: this.player.y,
 		});
 
-		this.bulletGroup = new bulletGroup(this);
+		this.myBullets = new bulletGroup(this);
+		this.theirBullets = this.physics.add.group();
+		socket.on('newBullet', (bullet) => {
+			const newBullet = this.physics.add.sprite(
+				bullet.pos.initial.x,
+				bullet.pos.initial.y,
+				'bullet'
+			);
+
+			newBullet.id = bullet.id;
+			newBullet.setScale(0.3);
+
+			this.theirBullets.add(newBullet);
+			this.physics.moveTo(
+				newBullet,
+				bullet.pos.end.x,
+				bullet.pos.end.y,
+				300
+			);
+		});
 
 		this.upKey = this.input.keyboard.addKey(
 			Phaser.Input.Keyboard.KeyCodes.UP
@@ -142,11 +165,11 @@ class gameScene extends Phaser.Scene {
 		}
 
 		if (this.input.activePointer.isDown && this.showDelta() > 100) {
-			this.bulletGroup.fire(this.player.x, this.player.y - 20);
+			this.myBullets.fire(this.player.x, this.player.y - 20);
 			this.start = this.getTime();
 		}
 
-		this.socket.emit('player', {
+		socket.emit('player', {
 			x: this.player.x,
 			y: this.player.y,
 			angle: this.player.angle,
