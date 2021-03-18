@@ -21,6 +21,7 @@ io.on('connection', (socket) => {
 		players[socket.id] = {
 			x: player.x,
 			y: player.y,
+			score: 0,
 		};
 
 		socket.broadcast.emit('newPlayer', {
@@ -49,7 +50,8 @@ io.on('connection', (socket) => {
 	socket.on('shot', (id) => {
 		if (id === socket.id) return;
 
-		io.to(id).emit('landedShot');
+		players[socket.id].score--;
+		players[id].score++;
 	});
 
 	socket.on('disconnect', () => {

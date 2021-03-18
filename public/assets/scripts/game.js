@@ -19,13 +19,9 @@ class gameScene extends Phaser.Scene {
 	create() {
 		this.start = this.getTime();
 
-		socket.emit("ready");
+		socket.emit('ready');
 
 		this.scoreText = this.add.text(10, 10, 'Score: 0');
-		socket.on('landedShot', () => {
-			this.score++;
-			this.scoreText.text = 'Score: ' + this.score;
-		});
 
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
@@ -42,14 +38,16 @@ class gameScene extends Phaser.Scene {
 
 		socket.on('players', (players) => {
 			Object.keys(players).forEach((id) => {
+				const playerInfo = players[id];
 				if (id != socket.id) {
 					this.players.getChildren().forEach((player) => {
 						if (player.id == id) {
-							const playerPos = players[id];
-							player.setPosition(playerPos.x, playerPos.y);
-							player.setAngle(playerPos.angle);
+							player.setPosition(playerInfo.x, playerInfo.y);
+							player.setAngle(playerInfo.angle);
 						}
 					});
+				} else {
+					this.score = playerInfo.score;
 				}
 			});
 		});
@@ -69,11 +67,8 @@ class gameScene extends Phaser.Scene {
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
-		this.physics.add.collider(this.theirBullets, this.player, (bullet) => {
+		this.physics.add.collider(this.theirBullets, this.player, (player, bullet) => {
 			this.player.resetPos();
-			this.score--;
-			this.scoreText.text = 'Score: ' + this.score;
-
 			socket.emit('shot', bullet.id);
 		});
 
@@ -150,6 +145,8 @@ class gameScene extends Phaser.Scene {
 			this.myBullets.fire(this.player.x, this.player.y - 20);
 			this.start = this.getTime();
 		}
+
+		this.scoreText.text = 'Score: ' + this.score;
 
 		socket.emit('player', {
 			x: this.player.x,
