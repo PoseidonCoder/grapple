@@ -141,7 +141,7 @@ class gameScene extends Phaser.Scene {
 		}
 
 		if (this.input.activePointer.isDown && this.showDelta() > 100) {
-			this.pew.play();
+			// this.pew.play(); (unintentianaly restarts audio)
 			this.myBullets.fire(this.player.x, this.player.y - 20);
 			this.start = this.getTime();
 		}
