@@ -8,10 +8,12 @@ let players = {};
 let bullets = [];
 
 io.on('connection', (socket) => {
-	Object.keys(players).forEach((id) => {
-		socket.emit('newPlayer', {
-			pos: players[id],
-			id: id,
+	socket.on('ready', () => {
+		Object.keys(players).forEach((id) => {
+			socket.emit('newPlayer', {
+				pos: players[id],
+				id: id,
+			});
 		});
 	});
 

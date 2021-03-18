@@ -18,6 +18,8 @@ class gameScene extends Phaser.Scene {
 	create() {
 		this.start = this.getTime();
 
+		socket.emit("ready");
+
 		this.scoreText = this.add.text(10, 10, 'Score: 0');
 		socket.on('landedShot', () => {
 			this.score++;
@@ -26,6 +28,7 @@ class gameScene extends Phaser.Scene {
 
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
+			console.log(player)
 			const newPlayer = this.add.sprite(
 				player.pos.x,
 				player.pos.y,
