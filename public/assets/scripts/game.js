@@ -28,7 +28,6 @@ class gameScene extends Phaser.Scene {
 
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
-			console.log(player)
 			const newPlayer = this.add.sprite(
 				player.pos.x,
 				player.pos.y,
