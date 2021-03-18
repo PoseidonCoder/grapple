@@ -67,7 +67,7 @@ class gameScene extends Phaser.Scene {
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
-		this.physics.add.collider(this.theirBullets, this.player, (player, bullet) => {
+		this.physics.add.overlap(this.theirBullets, this.player, (player, bullet) => {
 			this.player.resetPos();
 			socket.emit('shot', bullet.id);
 		});
