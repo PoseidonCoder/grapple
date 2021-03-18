@@ -12,6 +12,7 @@ class gameScene extends Phaser.Scene {
 	preload() {
 		this.load.image('player', 'assets/images/player.png');
 		this.load.image('bullet', 'assets/images/bullet.png');
+		this.load.image('enemy', 'assets/images/enemy.png');
 		this.load.audio('pew', 'assets/sounds/pew.ogg');
 	}
 
@@ -31,9 +32,9 @@ class gameScene extends Phaser.Scene {
 			const newPlayer = this.add.sprite(
 				player.pos.x,
 				player.pos.y,
-				'player'
+				'enemy'
 			);
-			newPlayer.setScale(3);
+			newPlayer.setScale(0.5);
 			newPlayer.id = player.id;
 
 			this.players.add(newPlayer);
