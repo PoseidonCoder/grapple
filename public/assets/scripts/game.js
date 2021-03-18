@@ -19,10 +19,10 @@ class gameScene extends Phaser.Scene {
 		this.start = this.getTime();
 
 		this.scoreText = this.add.text(10, 10, 'Score: 0');
-		socket.on("landedShot", ()=> {
+		socket.on('landedShot', () => {
 			this.score++;
 			this.scoreText.text = 'Score: ' + this.score;
-		})
+		});
 
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
@@ -80,8 +80,8 @@ class gameScene extends Phaser.Scene {
 				this.player.resetPos();
 				this.score--;
 				this.scoreText.text = 'Score: ' + this.score;
-				
-				socket.emit("shot", newBullet.id)
+
+				socket.emit('shot', newBullet.id);
 			});
 
 			this.theirBullets.add(newBullet);
@@ -96,37 +96,7 @@ class gameScene extends Phaser.Scene {
 		this.pew = this.sound.add('pew', 0.4);
 		this.pew.allowMultiple = true; // ineffective
 
-		this.upKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.UP
-		);
-
-		this.wKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.W
-		);
-
-		this.downKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.DOWN
-		);
-
-		this.sKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.S
-		);
-
-		this.leftKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.LEFT
-		);
-
-		this.aKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.A
-		);
-
-		this.rightKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.RIGHT
-		);
-
-		this.dKey = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.D
-		);
+		this.keys = this.input.keyboard.addKeys('W,A,S,D');
 
 		this.input.keyboard.on('keydown-SHIFT', (event) => {
 			this.speed += this.sprintAcceleration;
@@ -151,22 +121,22 @@ class gameScene extends Phaser.Scene {
 	}
 
 	update() {
-		if (this.upKey.isDown || this.wKey.isDown) {
+		if (this.keys.W.isDown) {
 			this.player.y -= this.speed;
 			this.cameras.main.scrollY -= this.speed;
 		}
 
-		if (this.downKey.isDown || this.sKey.isDown) {
+		if (this.keys.S.isDown) {
 			this.player.y += this.speed;
 			this.cameras.main.scrollY += this.speed;
 		}
 
-		if (this.leftKey.isDown || this.aKey.isDown) {
+		if (this.keys.A.isDown) {
 			this.player.x -= this.speed;
 			this.cameras.main.scrollX -= this.speed;
 		}
 
-		if (this.rightKey.isDown || this.dKey.isDown) {
+		if (this.keys.D.isDown) {
 			this.player.x += this.speed;
 			this.cameras.main.scrollX += this.speed;
 		}
