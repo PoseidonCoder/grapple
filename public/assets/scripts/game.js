@@ -5,6 +5,7 @@ class gameScene extends Phaser.Scene {
 
 	init() {
 		this.speed = 3;
+		this.score = 0;
 		this.sprintAcceleration = 2;
 	}
 
@@ -16,6 +17,12 @@ class gameScene extends Phaser.Scene {
 
 	create() {
 		this.start = this.getTime();
+
+		this.scoreText = this.add.text(10, 10, 'Score: 0');
+		socket.on("landedShot", ()=> {
+			this.score++;
+			this.scoreText.text = 'Score: ' + this.score;
+		})
 
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
@@ -69,9 +76,13 @@ class gameScene extends Phaser.Scene {
 			newBullet.id = bullet.id;
 			newBullet.setScale(0.3);
 			newBullet.setAngle(bullet.pos.angle);
-			this.physics.collide(this.player, newBullet, ()=> {
+			this.physics.collide(this.player, newBullet, () => {
 				this.player.resetPos();
-            });
+				this.score--;
+				this.scoreText.text = 'Score: ' + this.score;
+				
+				socket.emit("shot", newBullet.id)
+			});
 
 			this.theirBullets.add(newBullet);
 			this.physics.moveTo(

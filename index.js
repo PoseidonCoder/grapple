@@ -44,13 +44,19 @@ io.on('connection', (socket) => {
 		players[socket.id].angle = player.angle;
 	});
 
+	socket.on('shot', (id) => {
+		if (id === socket.id) return;
+
+		io.to(id).emit('landedShot');
+	});
+
 	socket.on('disconnect', () => {
 		delete players[socket.id];
 		socket.broadcast.emit('playerLeft', socket.id);
 	});
 });
 
-setInterval(()=> {
+setInterval(() => {
 	io.emit('players', players);
 }, 1000 / 24);
 
