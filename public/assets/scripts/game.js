@@ -66,6 +66,14 @@ class gameScene extends Phaser.Scene {
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
+		this.physics.add.collider(this.theirBullets, this.player, (bullet) => {
+			this.player.resetPos();
+			this.score--;
+			this.scoreText.text = 'Score: ' + this.score;
+
+			socket.emit('shot', bullet.id);
+		});
+
 		socket.on('newBullet', (bullet) => {
 			const newBullet = this.physics.add.sprite(
 				bullet.pos.initial.x,
@@ -76,13 +84,6 @@ class gameScene extends Phaser.Scene {
 			newBullet.id = bullet.id;
 			newBullet.setScale(0.3);
 			newBullet.setAngle(bullet.pos.angle);
-			this.physics.collide(this.player, newBullet, () => {
-				this.player.resetPos();
-				this.score--;
-				this.scoreText.text = 'Score: ' + this.score;
-
-				socket.emit('shot', newBullet.id);
-			});
 
 			this.theirBullets.add(newBullet);
 			this.physics.moveTo(
