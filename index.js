@@ -41,22 +41,34 @@ io.on('connection', (socket) => {
 		socket.broadcast.emit('newBullet', bullet);
 	});
 
-	socket.on('player', function (player) {
-		players[socket.id].x = player.x;
-		players[socket.id].y = player.y;
-		players[socket.id].angle = player.angle;
+	socket.on('player', (player) => {
+		if (players[socket.id]) {
+			players[socket.id].x = player.x;
+			players[socket.id].y = player.y;
+			players[socket.id].angle = player.angle;
+		} else {
+			console.log(`unable to find player ID ${socket.id} on 'player'`);
+		}
 	});
 
 	socket.on('shot', (id) => {
 		if (id === socket.id) return;
 
-		players[socket.id].score--;
-		players[id].score++;
+		if (players[socket.id] && players[id]) {
+			players[socket.id].score--;
+			players[id].score++;
+		} else {
+			console.log("unable to find player on 'shot'")
+		}
 	});
 
 	socket.on('disconnect', () => {
-		delete players[socket.id];
-		socket.broadcast.emit('playerLeft', socket.id);
+		if (players[socket.id]) {
+			delete players[socket.id];
+			socket.broadcast.emit('playerLeft', socket.id);
+		} else {
+			console.log("unable to find player on 'disconnect'")
+		}
 	});
 });
 
