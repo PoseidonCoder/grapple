@@ -20,5 +20,5 @@ const game = new Phaser.Game({
 			debug: false,
 		},
 	},
-	scene: [gameScene],
+	scene: [menuScene, gameScene],
 });
