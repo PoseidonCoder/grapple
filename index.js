@@ -5,7 +5,6 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 let players = {};
-let bullets = [];
 
 io.on('connection', (socket) => {
 	socket.on('ready', () => {
@@ -31,14 +30,10 @@ io.on('connection', (socket) => {
 	});
 
 	socket.on('newBullet', (pos) => {
-		const bullet = {
+		socket.broadcast.emit('newBullet', {
 			pos,
 			id: socket.id,
-		};
-
-		bullets.push(bullet);
-
-		socket.broadcast.emit('newBullet', bullet);
+		});
 	});
 
 	socket.on('player', (player) => {
