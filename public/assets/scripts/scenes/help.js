@@ -8,14 +8,16 @@ class helpScene extends Phaser.Scene {
 	}
 
 	create() {
-		this.backButton = this.add.text(0, 0, 'BACK');
+		this.backButton = this.add.text(0, 0, 'BACK', {
+			fill: '#fc6b03',
+		});
 		this.backButton.setInteractive();
 
 		this.backButton.on('pointerdown', () => {
 			this.scene.switch('menu');
 		});
 
-        this.add.text(
+		this.add.text(
 			this.cameras.main.centerX - 300,
 			this.cameras.main.centerY - 100,
 			`How to play:

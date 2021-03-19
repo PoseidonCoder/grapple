@@ -8,10 +8,16 @@ class menuScene extends Phaser.Scene {
 	}
 
 	create() {
+		const textSettings = {
+			fill: '#fc6b03',
+			fontSize: '150px',
+		};
+
 		this.playButton = this.add.text(
-			this.cameras.main.centerX,
-			this.cameras.main.centerY,
-			'PLAY'
+			this.cameras.main.centerX - 200,
+			this.cameras.main.centerY - 125,
+			'PLAY',
+			textSettings
 		);
 
 		this.playButton.setInteractive();
@@ -20,10 +26,11 @@ class menuScene extends Phaser.Scene {
 			this.scene.switch('game');
 		});
 
-        this.helpButton = this.add.text(
-			this.cameras.main.centerX,
-			this.cameras.main.centerY + 20,
-			'HELP'
+		this.helpButton = this.add.text(
+			this.cameras.main.centerX - 200,
+			this.cameras.main.centerY + 25,
+			'HELP',
+			textSettings
 		);
 
 		this.helpButton.setInteractive();
