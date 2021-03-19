@@ -16,10 +16,11 @@ io.on('connection', (socket) => {
 		});
 	});
 
-	socket.on('newPlayer', function (player) {
+	socket.on('newPlayer', (player) => {
 		players[socket.id] = {
 			x: player.x,
 			y: player.y,
+			name: player.name,
 			score: 0,
 		};
 
@@ -78,7 +79,7 @@ setInterval(() => {
 
 	const leaderboard = scoreSorted.map((player) => {
 		const playerInfo = players[player];
-		return player + ':' + playerInfo.score;
+		return playerInfo.name + ':' + playerInfo.score;
 	});
 
 	io.emit('leaderboard', leaderboard);

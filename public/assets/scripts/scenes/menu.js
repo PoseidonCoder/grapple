@@ -11,11 +11,12 @@ class menuScene extends Phaser.Scene {
 		const textSettings = {
 			fill: '#fc6b03',
 			fontSize: '150px',
+			backgroundColor: '#a83232',
 		};
 
 		this.playButton = this.add.text(
 			this.cameras.main.centerX - 200,
-			this.cameras.main.centerY - 125,
+			this.cameras.main.centerY - 170,
 			'PLAY',
 			textSettings
 		);
@@ -28,7 +29,7 @@ class menuScene extends Phaser.Scene {
 
 		this.helpButton = this.add.text(
 			this.cameras.main.centerX - 200,
-			this.cameras.main.centerY + 25,
+			this.cameras.main.centerY + 5,
 			'HELP',
 			textSettings
 		);

@@ -13,6 +13,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 		socket.emit('newPlayer', {
 			x: this.x,
 			y: this.y,
+			name: this.scene.name,
 		});
 	}
 
