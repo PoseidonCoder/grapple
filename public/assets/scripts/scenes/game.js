@@ -27,6 +27,21 @@ class gameScene extends Phaser.Scene {
 
 		this.scoreText = this.add.text(10, 10, 'Score: 0');
 
+		this.leaderboardText = this.add.text(
+			this.cameras.main.centerX * 2 - 250,
+			10,
+			''
+		);
+
+		socket.on('leaderboard', (leaderboard) => {
+			let formattedText = 'Leaderboard:';
+			leaderboard.forEach((player) => {
+				formattedText += `\n\t${player}`;
+			});
+
+			this.leaderboardText.text = formattedText;
+		});
+
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
 			const newPlayer = this.add.sprite(

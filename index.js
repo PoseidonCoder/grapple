@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
 			players[socket.id].score--;
 			players[id].score++;
 		} else {
-			console.log("unable to find player on 'shot'")
+			console.log("unable to find player on 'shot'");
 		}
 	});
 
@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
 			delete players[socket.id];
 			socket.broadcast.emit('playerLeft', socket.id);
 		} else {
-			console.log("unable to find player on 'disconnect'")
+			console.log("unable to find player on 'disconnect'");
 		}
 	});
 });
@@ -70,6 +70,19 @@ io.on('connection', (socket) => {
 setInterval(() => {
 	io.emit('players', players);
 }, 1000 / 24);
+
+setInterval(() => {
+	let scoreSorted = Object.keys(players).sort(
+		(a, b) => players[b].score - players[a].score
+	);
+
+	const leaderboard = scoreSorted.map((player) => {
+		const playerInfo = players[player];
+		return player + ':' + playerInfo.score;
+	});
+
+	io.emit('leaderboard', leaderboard);
+}, 4000);
 
 app.use(express.static('public'));
 http.listen(8080);
