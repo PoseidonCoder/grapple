@@ -1,0 +1,30 @@
+{
+	"name": "grapple",
+	"version": "1.0.0",
+	"description": "a multiplayer RPG game",
+	"main": "index.js",
+	"dependencies": {
+		"express": "^4.17.1",
+		"socket.io": "^4.0.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PoseidonCoder/grapple.git"
+	},
+	"keywords": [
+		"phaser",
+		"multiplayer",
+		"shooter",
+		"game"
+	],
+	"author": "Lukas Dobbles",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/PoseidonCoder/grapple/issues"
+	},
+	"homepage": "https://github.com/PoseidonCoder/grapple#readme"
+}
