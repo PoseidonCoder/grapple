@@ -60,17 +60,21 @@ class gameScene extends Phaser.Scene {
 			});
 		});
 
-		this.physics.world.setBounds(0, 0, 500, 500);
-		this.cameras.main.setBounds(0, 0, 500, 500);
+		this.physics.world.setBounds(0, 0, mapSize, mapSize);
+		this.cameras.main.setBounds(0, 0, mapSize, mapSize);
 
 		this.player = new Player(this);
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
-		this.physics.add.overlap(this.theirBullets, this.player, (player, bullet) => {
-			this.player.resetPos();
-			socket.emit('shot', bullet.id);
-		});
+		this.physics.add.overlap(
+			this.theirBullets,
+			this.player,
+			(player, bullet) => {
+				this.player.resetPos();
+				socket.emit('shot', bullet.id);
+			}
+		);
 
 		socket.on('newBullet', (bullet) => {
 			const newBullet = this.physics.add.sprite(
