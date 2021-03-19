@@ -17,7 +17,7 @@ class gameScene extends Phaser.Scene {
 		this.load.image('player', 'assets/images/player.png');
 		this.load.image('bullet', 'assets/images/bullet.png');
 		this.load.image('enemy', 'assets/images/enemy.png');
-		this.load.audio('pew', 'assets/sounds/pew.ogg');
+		// this.load.audio('pew', 'assets/sounds/pew.ogg');
 	}
 
 	create() {
@@ -100,8 +100,8 @@ class gameScene extends Phaser.Scene {
 			);
 		});
 
-		this.pew = this.sound.add('pew', 0.4);
-		this.pew.allowMultiple = true; // ineffective
+		// this.pew = this.sound.add('pew', 0.4);
+		// this.pew.allowMultiple = true; // ineffective
 
 		this.keys = this.input.keyboard.addKeys('W,A,S,D');
 
