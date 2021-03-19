@@ -19,5 +19,17 @@ class menuScene extends Phaser.Scene {
 		this.playButton.on('pointerdown', () => {
 			this.scene.switch('game');
 		});
+
+        this.helpButton = this.add.text(
+			this.cameras.main.centerX,
+			this.cameras.main.centerY + 20,
+			'HELP'
+		);
+
+		this.helpButton.setInteractive();
+
+		this.helpButton.on('pointerdown', () => {
+			this.scene.switch('help');
+		});
 	}
 }
