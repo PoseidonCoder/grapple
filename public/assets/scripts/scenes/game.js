@@ -11,7 +11,7 @@ class gameScene extends Phaser.Scene {
 		this.speed = 3;
 		this.score = 0;
 		this.sprintAcceleration = 2;
-		this.name = prompt("What would you like to be called?");
+		this.name = prompt('What would you like to be called?');
 	}
 
 	preload() {
@@ -84,6 +84,7 @@ class gameScene extends Phaser.Scene {
 		this.cameras.main.setBounds(0, 0, mapSize, mapSize);
 
 		this.player = new Player(this);
+		this.nameText = this.add.text(this.player.x - 30, this.player.y - 100, this.name);
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
@@ -146,21 +147,25 @@ class gameScene extends Phaser.Scene {
 	update() {
 		if (this.keys.W.isDown) {
 			this.player.y -= this.speed;
+			this.nameText.y -= this.speed;
 			this.cameras.main.scrollY -= this.speed;
 		}
 
 		if (this.keys.S.isDown) {
 			this.player.y += this.speed;
+			this.nameText.y += this.speed;
 			this.cameras.main.scrollY += this.speed;
 		}
 
 		if (this.keys.A.isDown) {
 			this.player.x -= this.speed;
+			this.nameText.x -= this.speed;
 			this.cameras.main.scrollX -= this.speed;
 		}
 
 		if (this.keys.D.isDown) {
 			this.player.x += this.speed;
+			this.nameText.x += this.speed;
 			this.cameras.main.scrollX += this.speed;
 		}
 
