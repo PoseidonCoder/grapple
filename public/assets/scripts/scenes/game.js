@@ -105,7 +105,7 @@ class gameScene extends Phaser.Scene {
 			);
 
 			newBullet.id = bullet.id;
-			newBullet.setScale(0.3);
+			newBullet.setScale(0.07);
 			newBullet.setAngle(bullet.pos.angle);
 
 			this.theirBullets.add(newBullet);
