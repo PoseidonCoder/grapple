@@ -45,11 +45,15 @@ class gameScene extends Phaser.Scene {
 
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
-			const newPlayer = this.add.sprite(
-				player.pos.x,
-				player.pos.y,
-				'enemy'
+			console.log(player);
+			const newPlayer = this.add.sprite(player.x, player.y, 'enemy');
+
+			newPlayer.nameText = this.add.text(
+				player.x - 30,
+				player.y - 100,
+				player.name
 			);
+
 			newPlayer.setScale(0.5);
 			newPlayer.id = player.id;
 
@@ -62,6 +66,11 @@ class gameScene extends Phaser.Scene {
 				if (id != socket.id) {
 					this.players.getChildren().forEach((player) => {
 						if (player.id == id) {
+							player.nameText.setPosition(
+								playerInfo.x - 30,
+								playerInfo.y - 100
+							);
+
 							player.setPosition(playerInfo.x, playerInfo.y);
 							player.setAngle(playerInfo.angle);
 						}
@@ -84,7 +93,11 @@ class gameScene extends Phaser.Scene {
 		this.cameras.main.setBounds(0, 0, mapSize, mapSize);
 
 		this.player = new Player(this);
-		this.nameText = this.add.text(this.player.x - 30, this.player.y - 100, this.name);
+		this.nameText = this.add.text(
+			this.player.x - 30,
+			this.player.y - 100,
+			this.name
+		);
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
