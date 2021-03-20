@@ -1,6 +1,11 @@
 class Player extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene) {
-		super(scene, Math.random() * 500, Math.random() * 500, 'player');
+		super(
+			scene,
+			Math.random() * mapWidth,
+			Math.random() * mapHeight,
+			'player'
+		);
 
 		this.nameText = scene.add.text(this.x - 40, this.y - 100, scene.name);
 
@@ -20,7 +25,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	resetPos() {
-		this.setPosition(Math.random() * 500, Math.random() * 500);
+		this.setPosition(Math.random() * mapWidth, Math.random() * mapHeight);
 		this.resetNameText();
 	}
 

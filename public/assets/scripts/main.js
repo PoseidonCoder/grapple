@@ -12,8 +12,8 @@ firebase.initializeApp({
 firebase.analytics();
 
 const game = new Phaser.Game({
-	width: window.innerWidth > mapSize ? mapSize : window.innerWidth,
-	height: window.innerHeight > mapSize ? mapSize : window.innerHeight,
+	width: window.innerWidth > mapWidth ? mapWidth : window.innerWidth,
+	height: window.innerHeight > mapHeight ? mapHeight : window.innerHeight,
 	physics: {
 		default: 'arcade',
 		arcade: {

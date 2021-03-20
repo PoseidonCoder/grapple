@@ -96,8 +96,8 @@ class gameScene extends Phaser.Scene {
 			});
 		});
 
-		this.physics.world.setBounds(0, 0, mapSize, mapSize);
-		this.cameras.main.setBounds(0, 0, mapSize, mapSize);
+		this.physics.world.setBounds(0, 0, mapWidth, mapHeight);
+		this.cameras.main.setBounds(0, 0, mapWidth, mapHeight);
 
 		this.player = new Player(this);
 
