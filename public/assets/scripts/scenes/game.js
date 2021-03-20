@@ -54,7 +54,7 @@ class gameScene extends Phaser.Scene {
 			);
 
 			newPlayer.nameText = this.add.text(
-				data.player.x - 30,
+				data.player.x - 40,
 				data.player.y - 100,
 				data.player.name
 			);
