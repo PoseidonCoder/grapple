@@ -27,12 +27,14 @@ class gameScene extends Phaser.Scene {
 		socket.emit('ready');
 
 		this.scoreText = this.add.text(10, 10, 'Score: 0');
+		this.scoreText.setScrollFactor(0, 0);
 
 		this.leaderboardText = this.add.text(
 			this.cameras.main.centerX * 2 - 250,
 			10,
 			''
 		);
+		this.leaderboardText.setScrollFactor(0, 0);
 
 		socket.on('leaderboard', (leaderboard) => {
 			let formattedText = 'Leaderboard:';
