@@ -5,6 +5,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 let players = {};
+const frameRate = 30;
 
 io.on('connection', (socket) => {
 	socket.on('ready', () => {
@@ -70,7 +71,7 @@ io.on('connection', (socket) => {
 
 setInterval(() => {
 	io.emit('players', players);
-}, 1000 / 24);
+}, 1000 / frameRate);
 
 setInterval(() => {
 	let scoreSorted = Object.keys(players).sort(
