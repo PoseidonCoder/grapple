@@ -44,17 +44,21 @@ class gameScene extends Phaser.Scene {
 		});
 
 		this.players = this.physics.add.group();
-		socket.on('newPlayer', (player) => {
-			const newPlayer = this.add.sprite(player.x, player.y, 'enemy');
+		socket.on('newPlayer', (data) => {
+			const newPlayer = this.add.sprite(
+				data.player.x,
+				data.player.y,
+				'enemy'
+			);
 
 			newPlayer.nameText = this.add.text(
-				player.x - 30,
-				player.y - 100,
-				player.name
+				data.player.x - 30,
+				data.player.y - 100,
+				data.player.name
 			);
 
 			newPlayer.setScale(0.5);
-			newPlayer.id = player.id;
+			newPlayer.id = data.id;
 
 			this.players.add(newPlayer);
 		});

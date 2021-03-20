@@ -9,7 +9,10 @@ let players = {};
 io.on('connection', (socket) => {
 	socket.on('ready', () => {
 		Object.keys(players).forEach((id) => {
-			socket.emit('newPlayer', players[id]);
+			socket.emit('newPlayer', {
+				player: players[id],
+				id
+			});
 		});
 	});
 
@@ -21,7 +24,10 @@ io.on('connection', (socket) => {
 			score: 0,
 		};
 
-		socket.broadcast.emit('newPlayer', players[socket.id]);
+		socket.broadcast.emit('newPlayer', {
+			player: players[socket.id],
+			id: socket.id
+		});
 	});
 
 	socket.on('newBullet', (pos) => {
