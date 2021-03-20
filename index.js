@@ -79,7 +79,7 @@ setInterval(() => {
 
 	const leaderboard = scoreSorted.map((player) => {
 		const playerInfo = players[player];
-		return playerInfo.name + ':' + playerInfo.score;
+		return playerInfo.name + ': ' + playerInfo.score;
 	});
 
 	io.emit('leaderboard', leaderboard);
