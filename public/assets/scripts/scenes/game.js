@@ -10,7 +10,7 @@ class gameScene extends Phaser.Scene {
 	init() {
 		this.speed = 3;
 		this.score = 0;
-		this.sprintAcceleration = 2;
+		this.sprintAcceleration = 3;
 		this.name = prompt('What would you like to be called?');
 	}
 
@@ -135,14 +135,7 @@ class gameScene extends Phaser.Scene {
 		// this.pew.allowMultiple = true; // ineffective
 
 		this.keys = this.input.keyboard.addKeys('W,A,S,D');
-
-		this.input.keyboard.on('keydown-SHIFT', (event) => {
-			this.speed += this.sprintAcceleration;
-		});
-
-		this.input.keyboard.on('keyup-SHIFT', (event) => {
-			this.speed -= this.sprintAcceleration;
-		});
+		this.shiftKey = this.input.keyboard.addKey(16);
 
 		this.input.on('pointermove', (event) => {
 			const angle =
@@ -159,28 +152,33 @@ class gameScene extends Phaser.Scene {
 	}
 
 	update() {
+		let playerSpeed = this.speed;
+		if (this.shiftKey.isDown) {
+			playerSpeed += this.sprintAcceleration;
+		}
+
 		if (this.keys.W.isDown) {
-			this.player.y -= this.speed;
+			this.player.y -= playerSpeed;
+			this.cameras.main.scrollY -= playerSpeed;
 			this.player.resetNameText();
-			this.cameras.main.scrollY -= this.speed;
 		}
 
 		if (this.keys.S.isDown) {
-			this.player.y += this.speed;
+			this.player.y += playerSpeed;
+			this.cameras.main.scrollY += playerSpeed;
 			this.player.resetNameText();
-			this.cameras.main.scrollY += this.speed;
 		}
 
 		if (this.keys.A.isDown) {
-			this.player.x -= this.speed;
+			this.player.x -= playerSpeed;
+			this.cameras.main.scrollX -= playerSpeed;
 			this.player.resetNameText();
-			this.cameras.main.scrollX -= this.speed;
 		}
 
 		if (this.keys.D.isDown) {
-			this.player.x += this.speed;
+			this.player.x += playerSpeed;
+			this.cameras.main.scrollX += playerSpeed;
 			this.player.resetNameText();
-			this.cameras.main.scrollX += this.speed;
 		}
 
 		if (this.input.activePointer.isDown && this.showDelta() > 100) {
