@@ -90,6 +90,7 @@ class gameScene extends Phaser.Scene {
 			this.players.getChildren().forEach((player) => {
 				if (player.id == id) {
 					player.destroy();
+					player.nameText.destroy();
 				}
 			});
 		});
