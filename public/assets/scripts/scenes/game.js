@@ -146,8 +146,8 @@ class gameScene extends Phaser.Scene {
 					// calculates the angle in radians
 					this.player.x,
 					this.player.y,
-					event.x,
-					event.y
+					this.game.input.activePointer.worldX,
+					this.game.input.activePointer.worldY
 				);
 			this.player.setAngle(angle);
 		});

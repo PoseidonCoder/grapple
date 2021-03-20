@@ -3,11 +3,10 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x, y, 'bullet');
 
 		this.scene = scene;
-		this.sceneWidth = this.scene.cameras.main.centerY * 2;
-		this.sceneHeight = this.scene.cameras.main.centerX * 2;
 	}
 
 	fire(x, y) {
+		console.log(this.scene.input.mousePointer.x);
 		socket.emit('newBullet', {
 			angle: this.scene.player.angle,
 			initial: {
@@ -15,9 +14,9 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 				y,
 			},
 			end: {
-				x: this.scene.input.mousePointer.x,
-				y: this.scene.input.mousePointer.y,	
-			}
+				x: this.scene.game.input.activePointer.worldX,
+				y: this.scene.game.input.activePointer.worldY,
+			},
 		});
 		this.body.reset(x, y);
 
@@ -25,8 +24,8 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 
 		this.scene.physics.moveTo(
 			this,
-			this.scene.input.mousePointer.x,
-			this.scene.input.mousePointer.y,
+			this.scene.game.input.activePointer.worldX,
+			this.scene.game.input.activePointer.worldY,
 			300
 		);
 
@@ -39,9 +38,9 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 
 		if (
 			this.y <= 0 ||
-			this.y >= this.sceneHeight ||
+			this.y >= mapHeight ||
 			this.x <= 0 ||
-			this.x >= this.sceneWidth
+			this.x >= mapWidth
 		) {
 			this.setActive(false);
 			this.setVisible(false);
