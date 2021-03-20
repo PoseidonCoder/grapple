@@ -45,7 +45,6 @@ class gameScene extends Phaser.Scene {
 
 		this.players = this.physics.add.group();
 		socket.on('newPlayer', (player) => {
-			console.log(player);
 			const newPlayer = this.add.sprite(player.x, player.y, 'enemy');
 
 			newPlayer.nameText = this.add.text(
@@ -93,11 +92,6 @@ class gameScene extends Phaser.Scene {
 		this.cameras.main.setBounds(0, 0, mapSize, mapSize);
 
 		this.player = new Player(this);
-		this.nameText = this.add.text(
-			this.player.x - 30,
-			this.player.y - 100,
-			this.name
-		);
 
 		this.myBullets = new bulletGroup(this);
 		this.theirBullets = this.physics.add.group();
@@ -160,25 +154,25 @@ class gameScene extends Phaser.Scene {
 	update() {
 		if (this.keys.W.isDown) {
 			this.player.y -= this.speed;
-			this.nameText.y -= this.speed;
+			this.player.resetNameText();
 			this.cameras.main.scrollY -= this.speed;
 		}
 
 		if (this.keys.S.isDown) {
 			this.player.y += this.speed;
-			this.nameText.y += this.speed;
+			this.player.resetNameText();
 			this.cameras.main.scrollY += this.speed;
 		}
 
 		if (this.keys.A.isDown) {
 			this.player.x -= this.speed;
-			this.nameText.x -= this.speed;
+			this.player.resetNameText();
 			this.cameras.main.scrollX -= this.speed;
 		}
 
 		if (this.keys.D.isDown) {
 			this.player.x += this.speed;
-			this.nameText.x += this.speed;
+			this.player.resetNameText();
 			this.cameras.main.scrollX += this.speed;
 		}
 
