@@ -18,14 +18,18 @@ class gameScene extends Phaser.Scene {
 		this.load.image('player', 'assets/images/player.png');
 		this.load.image('bullet', 'assets/images/bullet.png');
 		this.load.image('enemy', 'assets/images/enemy.png');
+
 		this.load.audio('pew', 'assets/sounds/shoot.mp3');
-		// this.load.audio('pew', 'assets/sounds/pew.ogg');
+		this.load.audio('music', 'assets/sounds/music.mp3');
 	}
 
 	create() {
 		this.start = this.getTime();
 
 		socket.emit('ready');
+
+		const music = this.sound.add('music', 1, true);
+		music.play();
 
 		this.scoreText = this.add.text(10, 10, 'Score: 0');
 		this.scoreText.setScrollFactor(0, 0);
