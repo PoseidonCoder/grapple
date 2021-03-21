@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 class helpScene extends Phaser.Scene {
 	constructor() {
 		super();

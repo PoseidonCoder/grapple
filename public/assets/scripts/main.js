@@ -1,4 +1,6 @@
 import globals from './globals';
+import Phaser from 'phaser';
+import firebase from 'firebase';
 
 import gameScene from './scenes/game';
 import helpScene from './scenes/help';
@@ -18,8 +20,14 @@ firebase.initializeApp({
 firebase.analytics();
 
 new Phaser.Game({
-	width: window.innerWidth > globals.mapWidth ? globals.mapWidth : window.innerWidth,
-	height: window.innerHeight > globals.mapHeight ? globals.mapHeight : window.innerHeight,
+	width:
+		window.innerWidth > globals.mapWidth
+			? globals.mapWidth
+			: window.innerWidth,
+	height:
+		window.innerHeight > globals.mapHeight
+			? globals.mapHeight
+			: window.innerHeight,
 	physics: {
 		default: 'arcade',
 		arcade: {

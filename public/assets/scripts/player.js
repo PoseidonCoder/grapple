@@ -1,4 +1,5 @@
 import globals from './globals';
+import Phaser from 'phaser';
 
 class Player extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene) {
@@ -27,7 +28,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	resetPos() {
-		this.setPosition(Math.random() * globals.mapWidth, Math.random() * globals.mapHeight);
+		this.setPosition(
+			Math.random() * globals.mapWidth,
+			Math.random() * globals.mapHeight
+		);
 		this.resetNameText();
 	}
 

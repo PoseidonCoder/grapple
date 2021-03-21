@@ -1,4 +1,5 @@
 import globals from './globals';
+import Phaser from 'phaser';
 
 class bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {

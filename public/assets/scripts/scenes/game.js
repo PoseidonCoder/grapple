@@ -1,4 +1,5 @@
 import globals from '../globals';
+import Phaser from 'phaser';
 import bulletGroup from '../bullet';
 import Player from '../player';
 

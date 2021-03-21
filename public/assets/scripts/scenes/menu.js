@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 class menuScene extends Phaser.Scene {
 	constructor() {
 		super();
