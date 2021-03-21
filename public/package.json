@@ -8,7 +8,7 @@
 		"webpack-cli": "^4.5.0"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "sudo npx webpack"
 	},
 	"repository": {
 		"type": "git",
