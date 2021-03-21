@@ -31,3 +31,5 @@ class helpScene extends Phaser.Scene {
 		);
 	}
 }
+
+export default helpScene;

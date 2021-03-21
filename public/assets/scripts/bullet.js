@@ -1,3 +1,5 @@
+import globals from './globals';
+
 class bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
 		super(scene, x, y, 'bullet');
@@ -6,7 +8,7 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	fire(x, y) {
-		socket.emit('newBullet', {
+		globals.socket.emit('newBullet', {
 			angle: this.scene.player.angle,
 			initial: {
 				x,
@@ -37,9 +39,9 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 
 		if (
 			this.y <= 0 ||
-			this.y >= mapHeight ||
+			this.y >= globals.mapHeight ||
 			this.x <= 0 ||
-			this.x >= mapWidth
+			this.x >= globals.mapWidth
 		) {
 			this.setActive(false);
 			this.setVisible(false);
@@ -69,3 +71,5 @@ class bulletGroup extends Phaser.Physics.Arcade.Group {
 		if (bullet) bullet.fire(x, y);
 	}
 }
+
+export default bulletGroup;

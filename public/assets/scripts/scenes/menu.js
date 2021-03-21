@@ -41,3 +41,5 @@ class menuScene extends Phaser.Scene {
 		});
 	}
 }
+
+export default menuScene;

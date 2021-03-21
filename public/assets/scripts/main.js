@@ -1,3 +1,9 @@
+import globals from './globals';
+
+import gameScene from './scenes/game';
+import helpScene from './scenes/help';
+import menuScene from './scenes/menu';
+
 firebase.initializeApp({
 	apiKey: 'AIzaSyDXU6Lw0B-Ma_LagtQ4OF-lmmwaAeZGBB8',
 	authDomain: 'grapple-ecd1c.firebaseapp.com',
@@ -11,9 +17,9 @@ firebase.initializeApp({
 
 firebase.analytics();
 
-const game = new Phaser.Game({
-	width: window.innerWidth > mapWidth ? mapWidth : window.innerWidth,
-	height: window.innerHeight > mapHeight ? mapHeight : window.innerHeight,
+new Phaser.Game({
+	width: window.innerWidth > globals.mapWidth ? globals.mapWidth : window.innerWidth,
+	height: window.innerHeight > globals.mapHeight ? globals.mapHeight : window.innerHeight,
 	physics: {
 		default: 'arcade',
 		arcade: {

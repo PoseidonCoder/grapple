@@ -1,9 +1,11 @@
+import globals from './globals';
+
 class Player extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene) {
 		super(
 			scene,
-			Math.random() * mapWidth,
-			Math.random() * mapHeight,
+			Math.random() * globals.mapWidth,
+			Math.random() * globals.mapHeight,
 			'player'
 		);
 
@@ -17,7 +19,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 		scene.cameras.main.startFollow(this, true);
 		this.setCollideWorldBounds(true);
 
-		socket.emit('newPlayer', {
+		globals.socket.emit('newPlayer', {
 			x: this.x,
 			y: this.y,
 			name: this.scene.name,
@@ -25,7 +27,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	resetPos() {
-		this.setPosition(Math.random() * mapWidth, Math.random() * mapHeight);
+		this.setPosition(Math.random() * globals.mapWidth, Math.random() * globals.mapHeight);
 		this.resetNameText();
 	}
 
@@ -33,3 +35,5 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 		this.nameText.setPosition(this.x - 40, this.y - 100);
 	}
 }
+
+export default Player;

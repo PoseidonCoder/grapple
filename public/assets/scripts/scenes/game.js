@@ -1,3 +1,7 @@
+import globals from '../globals';
+import bulletGroup from '../bullet';
+import Player from '../player';
+
 class gameScene extends Phaser.Scene {
 	constructor() {
 		super();
@@ -26,7 +30,7 @@ class gameScene extends Phaser.Scene {
 	create() {
 		this.start = this.getTime();
 
-		socket.emit('ready');
+		globals.socket.emit('ready');
 
 		const music = this.sound.add('music', 1, true);
 		music.play();
@@ -41,7 +45,7 @@ class gameScene extends Phaser.Scene {
 		);
 		this.leaderboardText.setScrollFactor(0, 0);
 
-		socket.on('leaderboard', (leaderboard) => {
+		globals.socket.on('leaderboard', (leaderboard) => {
 			let formattedText = 'Leaderboard:';
 			leaderboard.forEach((player) => {
 				formattedText += `\n\t${player}`;
@@ -51,7 +55,7 @@ class gameScene extends Phaser.Scene {
 		});
 
 		this.players = this.physics.add.group();
-		socket.on('newPlayer', (data) => {
+		globals.socket.on('newPlayer', (data) => {
 			const newPlayer = this.add.sprite(
 				data.player.x,
 				data.player.y,
@@ -70,10 +74,10 @@ class gameScene extends Phaser.Scene {
 			this.players.add(newPlayer);
 		});
 
-		socket.on('players', (players) => {
+		globals.socket.on('players', (players) => {
 			Object.keys(players).forEach((id) => {
 				const playerInfo = players[id];
-				if (id != socket.id) {
+				if (id != globals.socket.id) {
 					this.players.getChildren().forEach((player) => {
 						if (player.id == id) {
 							player.nameText.setPosition(
@@ -91,7 +95,7 @@ class gameScene extends Phaser.Scene {
 			});
 		});
 
-		socket.on('playerLeft', (id) => {
+		globals.socket.on('playerLeft', (id) => {
 			this.players.getChildren().forEach((player) => {
 				if (player.id == id) {
 					player.destroy();
@@ -100,8 +104,8 @@ class gameScene extends Phaser.Scene {
 			});
 		});
 
-		this.physics.world.setBounds(0, 0, mapWidth, mapHeight);
-		this.cameras.main.setBounds(0, 0, mapWidth, mapHeight);
+		this.physics.world.setBounds(0, 0, globals.mapWidth, globals.mapHeight);
+		this.cameras.main.setBounds(0, 0, globals.mapWidth, globals.mapHeight);
 
 		this.player = new Player(this);
 
@@ -112,11 +116,11 @@ class gameScene extends Phaser.Scene {
 			this.player,
 			(player, bullet) => {
 				this.player.resetPos();
-				socket.emit('shot', bullet.id);
+				globals.socket.emit('shot', bullet.id);
 			}
 		);
 
-		socket.on('newBullet', (bullet) => {
+		globals.socket.on('newBullet', (bullet) => {
 			const newBullet = this.physics.add.sprite(
 				bullet.pos.initial.x,
 				bullet.pos.initial.y,
@@ -195,7 +199,7 @@ class gameScene extends Phaser.Scene {
 
 		this.scoreText.text = 'Score: ' + this.score;
 
-		socket.emit('player', {
+		globals.socket.emit('player', {
 			x: this.player.x,
 			y: this.player.y,
 			angle: this.player.angle,
@@ -210,3 +214,5 @@ class gameScene extends Phaser.Scene {
 		return this.getTime() - this.start;
 	}
 }
+
+export default gameScene;
