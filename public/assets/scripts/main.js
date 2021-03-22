@@ -1,6 +1,8 @@
 import globals from './globals';
 import Phaser from 'phaser';
-import firebase from 'firebase';
+
+import firebase from 'firebase/app';
+require('firebase/analytics');
 
 import gameScene from './scenes/game';
 import helpScene from './scenes/help';
