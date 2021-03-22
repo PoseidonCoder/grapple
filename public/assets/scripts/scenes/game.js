@@ -23,6 +23,7 @@ class gameScene extends Phaser.Scene {
 		this.load.image('player', 'assets/images/player.png');
 		this.load.image('bullet', 'assets/images/bullet.png');
 		this.load.image('enemy', 'assets/images/enemy.png');
+		this.load.image('grass', 'assets/images/grass.png');
 
 		this.load.audio('pew', 'assets/sounds/shoot.mp3');
 		this.load.audio('music', 'assets/sounds/music.mp3');
@@ -35,6 +36,16 @@ class gameScene extends Phaser.Scene {
 
 		const music = this.sound.add('music', 1, true);
 		music.play();
+
+		this.bg = this.add.tileSprite(
+			0,
+			0,
+			globals.mapWidth,
+			globals.mapHeight,
+			'grass'
+		);
+
+		this.bg.setOrigin(0);
 
 		this.scoreText = this.add.text(10, 10, 'Score: 0');
 		this.scoreText.setScrollFactor(0, 0);
