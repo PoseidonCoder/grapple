@@ -12,7 +12,7 @@ class gameScene extends Phaser.Scene {
 	}
 
 	init() {
-		this.speed = 3;
+		this.speed = 5;
 		this.score = 0;
 		this.sprintAcceleration = 3;
 		this.name = prompt('What would you like to be called?');
