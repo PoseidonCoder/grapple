@@ -7,7 +7,21 @@ class helpScene extends Phaser.Scene {
 		});
 	}
 
+	preload() {
+		this.load.image('grass', 'assets/images/grass.png');
+	}
+
 	create() {
+		const bg = this.add.tileSprite(
+			0,
+			0,
+			window.innerWidth,
+			window.innerHeight,
+			'grass'
+		);
+
+		bg.setOrigin(0);
+
 		this.backButton = this.add.text(0, 0, 'BACK', {
 			fill: '#fc6b03',
 		});
