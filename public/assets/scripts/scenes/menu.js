@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import loadingBar from '../util/loadingBar';
 
 class menuScene extends Phaser.Scene {
 	constructor() {
@@ -9,6 +10,8 @@ class menuScene extends Phaser.Scene {
 
 	preload() {
 		this.load.image('grass', 'assets/images/grass.png');
+
+		loadingBar(this);
 	}
 
 	create() {
