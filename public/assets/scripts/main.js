@@ -1,4 +1,4 @@
-import globals from './globals';
+import globals from './util/globals';
 import Phaser from 'phaser';
 
 import firebase from 'firebase/app';

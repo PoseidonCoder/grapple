@@ -1,6 +1,8 @@
+import globals from './globals';
+
 function loadingBar(scene) {
-	const progressBar = this.add.graphics();
-	const progressBox = this.add.graphics();
+	const progressBar = scene.add.graphics();
+	const progressBox = scene.add.graphics();
 	progressBox.fillStyle(0x222222, 0.8);
 	progressBox.fillRect(
 		globals.mapWidth / 2.7,
@@ -31,3 +33,5 @@ function loadingBar(scene) {
 		progressBox.destroy();
 	});
 }
+
+export default loadingBar;

@@ -1,8 +1,8 @@
-import globals from '../globals';
+import globals from '../util/globals';
+import bulletGroup from '../util/bullet';
+import Player from '../util/player';
+import loadingBar from '../util/loadingBar';
 import Phaser from 'phaser';
-import bulletGroup from '../bullet';
-import Player from '../player';
-import loadingBar from '../loadingBar';
 
 class gameScene extends Phaser.Scene {
 	constructor() {
