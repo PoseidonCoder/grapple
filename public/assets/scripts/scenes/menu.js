@@ -2,9 +2,7 @@ import Phaser from 'phaser';
 
 class menuScene extends Phaser.Scene {
 	constructor() {
-		super();
-
-		Phaser.Scene.call(this, {
+		super({
 			key: 'menu',
 		});
 	}

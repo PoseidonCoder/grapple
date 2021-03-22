@@ -5,9 +5,7 @@ import Player from '../player';
 
 class gameScene extends Phaser.Scene {
 	constructor() {
-		super();
-
-		Phaser.Scene.call(this, {
+		super({
 			key: 'game',
 		});
 	}
