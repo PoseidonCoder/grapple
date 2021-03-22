@@ -16,13 +16,7 @@ We hope to expand into a popular open-source project.
 We want to continue improving.
 We will add new, wild, gamemodes.
 
-## 🤝 Support me
-
-by donating to my crypto accounts
-
-### Ethereum: `0xCC27F23C05495a195fAD9f5d370A952cc44261d8`
-
-## Contributing to Grapple *(I can't do this all by myself)*
+## Contributing to Grapple _(I can't do this all by myself)_
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
@@ -31,3 +25,9 @@ by donating to my crypto accounts
 5. Create the pull request.
 
 Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+## 🤝 Support me
+
+by donating to my crypto accounts
+
+* Ethereum: `0xCC27F23C05495a195fAD9f5d370A952cc44261d8`
