@@ -4,12 +4,12 @@
 	"description": "a multiplayer RPG game",
 	"main": "index.js",
 	"devDependencies": {
+		"speed-measure-webpack-plugin": "^1.4.2",
+		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^5.27.1",
 		"webpack-cli": "^4.5.0"
 	},
-	"scripts": {
-		"build": "sudo npx webpack"
-	},
+	"scripts": {},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/PoseidonCoder/grapple.git"

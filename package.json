@@ -9,7 +9,8 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"start": "node ."
+		"start": "node .",
+		"publish": "cd ./public/ && npx webpack --mode production --progress && git push origin master"
 	},
 	"repository": {
 		"type": "git",
