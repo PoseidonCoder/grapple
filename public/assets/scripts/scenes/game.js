@@ -35,8 +35,15 @@ class gameScene extends Phaser.Scene {
 
 		globals.socket.emit('ready');
 
-		const music = this.sound.add('music', 1, true);
+		const music = this.sound.add('music', {
+			volume: 0.03,
+			loop: true,
+		});
 		music.play();
+
+		this.pew = this.sound.add('pew', {
+			volume: 0.05,
+		});
 
 		this.bg = this.add.tileSprite(
 			0,
@@ -151,10 +158,6 @@ class gameScene extends Phaser.Scene {
 				bullet.pos.end.y,
 				300
 			);
-		});
-
-		this.pew = this.sound.add('pew', {
-			volume: 0.05,
 		});
 
 		this.keys = this.input.keyboard.addKeys('W,A,S,D');
