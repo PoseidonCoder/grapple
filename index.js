@@ -4,6 +4,18 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+const { google } = require('googleapis');
+
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
+
+const oauth = new google.auth.OAuth2(
+	'874102344684-vmkrsder30ats2nel9b8dm6v837cchft.apps.googleusercontent.com',
+	process.env.CLIENT_SECRET,
+	'http://localhost:8080/auth'
+);
+
 let players = {};
 const frameRate = 30;
 
