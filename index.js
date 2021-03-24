@@ -12,7 +12,7 @@ io.on('connection', (socket) => {
 		Object.keys(players).forEach((id) => {
 			socket.emit('newPlayer', {
 				player: players[id],
-				id
+				id,
 			});
 		});
 	});
@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
 
 		socket.broadcast.emit('newPlayer', {
 			player: players[socket.id],
-			id: socket.id
+			id: socket.id,
 		});
 	});
 
@@ -87,4 +87,5 @@ setInterval(() => {
 }, 4000);
 
 app.use(express.static('public'));
+app.use(require('express-status-monitor')());
 http.listen(process.env.PORT || 8080);
