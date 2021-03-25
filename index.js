@@ -4,6 +4,9 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+const redis = require('redis');
+const client = redis.createClient();
+
 const { google } = require('googleapis');
 
 if (process.env.NODE_ENV !== 'production') {
@@ -15,6 +18,25 @@ const oauth = new google.auth.OAuth2(
 	process.env.CLIENT_SECRET,
 	'http://localhost:8080/auth'
 );
+
+app.get('/create', (req, res) => {
+	const url = oauth.generateAuthUrl({
+		scope: 'https://www.googleapis.com/auth/userinfo.email',
+	});
+
+	res.redirect(url);
+});
+
+app.get('/auth', async (req, res) => {
+	const { tokens } = await oauth.getToken(req.query.code);
+	oauth.setCredentials(tokens);
+
+	client.hmset(tokens.id_token, {
+		name: '',
+	});
+
+	res.redirect('/');
+});
 
 let players = {};
 const frameRate = 30;
