@@ -19,7 +19,7 @@ const oauth = new google.auth.OAuth2(
 	'http://localhost:8080/auth'
 );
 
-app.get('/create', (req, res) => {
+app.get('/api/create', (req, res) => {
 	const url = oauth.generateAuthUrl({
 		scope: 'https://www.googleapis.com/auth/userinfo.email',
 	});
@@ -27,7 +27,7 @@ app.get('/create', (req, res) => {
 	res.redirect(url);
 });
 
-app.get('/auth', async (req, res) => {
+app.get('/api/auth', async (req, res) => {
 	const { tokens } = await oauth.getToken(req.query.code);
 	oauth.setCredentials(tokens);
 
