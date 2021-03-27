@@ -56,6 +56,19 @@ class menuScene extends Phaser.Scene {
 		this.helpButton.on('pointerdown', () => {
 			this.scene.switch('help');
 		});
+
+		this.signInButton = this.add.text(
+			this.cameras.main.centerX - 340,
+			this.cameras.main.centerY + 180,
+			'SIGN IN',
+			textSettings
+		);
+
+		this.signInButton.setInteractive();
+
+		this.signInButton.on('pointerdown', () => {
+			window.location.replace('/api/create');
+		});
 	}
 }
 
