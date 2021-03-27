@@ -12,6 +12,8 @@ class gameScene extends Phaser.Scene {
 	}
 
 	init() {
+		location.replace('/api/create');
+
 		this.speed = 5;
 		this.score = 0;
 		this.sprintAcceleration = 3;

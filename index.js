@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
 const oauth = new google.auth.OAuth2(
 	'874102344684-vmkrsder30ats2nel9b8dm6v837cchft.apps.googleusercontent.com',
 	process.env.CLIENT_SECRET,
-	'http://localhost:8080/auth'
+	'http://localhost:8080/api/auth'
 );
 
 app.get('/api/create', (req, res) => {
