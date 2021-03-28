@@ -27,7 +27,6 @@
 	},
 	"homepage": "https://github.com/PoseidonCoder/grapple#readme",
 	"dependencies": {
-		"firebase": "^8.3.1",
 		"phaser": "^3.53.1",
 		"socket.io-client": "^4.0.0"
 	}
