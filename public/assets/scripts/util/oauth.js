@@ -15,20 +15,10 @@ const loadOauth = new Promise((resolve, reject) => {
 
 	initGapi.then(() => {
 		const oauth = gapi.auth2.getAuthInstance();
-		oauth.isSignedIn.listen((data) => {
-			console.log(data);
-		});
-
 		resolve(oauth);
 	});
 
 	initGapi.catch(reject);
 });
 
-function latchOauth(scene) {
-	loadOauth.then((oauth) => {
-		scene.oauth = oauth;
-	}).catch(console.error);
-}
-
-export default latchOauth;
+export default loadOauth;
