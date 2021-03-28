@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+
+import latchOauth from '../util/oauth';
 import loadingBar from '../util/loadingBar';
 
 class menuScene extends Phaser.Scene {
@@ -12,6 +14,7 @@ class menuScene extends Phaser.Scene {
 		this.load.image('grass', 'assets/images/grass.png');
 
 		loadingBar(this);
+		latchOauth(this);
 	}
 
 	create() {
@@ -67,7 +70,9 @@ class menuScene extends Phaser.Scene {
 		this.signInButton.setInteractive();
 
 		this.signInButton.on('pointerdown', () => {
-			window.location.replace('/api/create');
+			console.log(this.oauth);
+			this.oauth.signIn();
+			console.log(this.oauth.currentUser.get());
 		});
 	}
 }
