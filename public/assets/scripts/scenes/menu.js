@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 import loadOauth from '../util/oauth';
 import loadingBar from '../util/loadingBar';
 
-class menuScene extends Phaser.Scene {
+class MenuScene extends Phaser.Scene {
 	constructor() {
 		super({
 			key: 'menu',
@@ -88,4 +88,4 @@ class menuScene extends Phaser.Scene {
 	}
 }
 
-export default menuScene;
+export default MenuScene;

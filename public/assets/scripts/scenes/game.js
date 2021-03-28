@@ -4,7 +4,7 @@ import Player from '../util/player';
 import loadingBar from '../util/loadingBar';
 import Phaser from 'phaser';
 
-class gameScene extends Phaser.Scene {
+class GameScene extends Phaser.Scene {
 	constructor() {
 		super({
 			key: 'game',
@@ -231,4 +231,4 @@ class gameScene extends Phaser.Scene {
 	}
 }
 
-export default gameScene;
+export default GameScene;

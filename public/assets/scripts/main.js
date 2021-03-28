@@ -1,9 +1,9 @@
 import globals from './util/globals';
 import Phaser from 'phaser';
 
-import gameScene from './scenes/game';
-import helpScene from './scenes/help';
-import menuScene from './scenes/menu';
+import GameScene from './scenes/game';
+import HelpScene from './scenes/help';
+import MenuScene from './scenes/menu';
 
 new Phaser.Game({
 	width:
@@ -20,5 +20,5 @@ new Phaser.Game({
 			debug: false,
 		},
 	},
-	scene: [menuScene, helpScene, gameScene],
+	scene: [MenuScene, HelpScene, GameScene],
 });

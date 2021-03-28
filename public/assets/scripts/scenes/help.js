@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-class helpScene extends Phaser.Scene {
+class HelpScene extends Phaser.Scene {
 	constructor() {
 		super({
 			key: 'help',
@@ -46,4 +46,4 @@ class helpScene extends Phaser.Scene {
 	}
 }
 
-export default helpScene;
+export default HelpScene;

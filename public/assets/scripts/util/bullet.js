@@ -1,7 +1,7 @@
 import globals from './globals';
 import Phaser from 'phaser';
 
-class bullet extends Phaser.Physics.Arcade.Sprite {
+class Bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
 		super(scene, x, y, 'bullet');
 
@@ -50,7 +50,7 @@ class bullet extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 
-class bulletGroup extends Phaser.Physics.Arcade.Group {
+class BulletGroup extends Phaser.Physics.Arcade.Group {
 	constructor(scene) {
 		super(scene.physics.world, scene);
 
@@ -63,7 +63,7 @@ class bulletGroup extends Phaser.Physics.Arcade.Group {
 			},
 			active: false,
 			visible: false,
-			classType: bullet,
+			classType: Bullet,
 		});
 	}
 
@@ -73,4 +73,4 @@ class bulletGroup extends Phaser.Physics.Arcade.Group {
 	}
 }
 
-export default bulletGroup;
+export default BulletGroup;
