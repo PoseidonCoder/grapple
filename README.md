@@ -1,3 +1,5 @@
+<div align="center">
+
 ![](./public/assets/images/player.png)
 # Grapple (2.0 - major revamp)
 
@@ -6,6 +8,8 @@
 [![](http://hits.dwyl.com/PoseidonCoder/grapple.svg)](http://hits.dwyl.com/PoseidonCoder/grapple?style=for-the-badge)
 
 _TLDR; A fast-paced multiplayer RPG_
+
+</div>
 
 ## ☀️ Bright beginings
 
