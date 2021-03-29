@@ -1,3 +1,4 @@
+![](./public/assets/images/player.png)
 # Grapple (2.0 - major revamp)
 
 ![](https://img.shields.io/github/license/PoseidonCoder/grapple?style=flat-square)
