@@ -10,17 +10,17 @@ Grapple was made to compete in the [Kaboom game jam](https://replit.com/talk/ann
 We got 10th place :)
 (no prize for that though).
 
-## Grappling hook
+## 🎣 Grappling hook
 
 Each player starts with a grappling hook. If any other player touches the grappling hook's line it will lower their health. 
 
 ## Loot
 
-### Guns
+### 🔫 Guns
 
 Guns are scattered across the map. They are only spawned once per match. When you kill other players they will drop their loot. 
 
-### Potions
+### ⚗️ Potions
 
 Potions will also be scattered across the map.
 They will serve as power-ups.
@@ -30,7 +30,7 @@ They will serve as power-ups.
 * 50% health - restores 50% of your health
 * enigma crate - contains random loot
 
-## Contributing to Grapple *(I can't do this all by myself)*
+## 🤝 Contributing to Grapple *(I can't do this all by myself)*
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
@@ -44,7 +44,7 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 
 Thanks to my friend for drawing the sprites.
 
-## 🤝 Support me
+## 🤝💰 Support me
 
 by donating to my crypto accounts
 
