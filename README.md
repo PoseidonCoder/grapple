@@ -1,6 +1,7 @@
 <div align="center">
 
 ![](./public/assets/images/player.png)
+
 # Grapple (2.0 - major revamp)
 
 ![](https://img.shields.io/github/license/PoseidonCoder/grapple?style=flat-square)
@@ -19,29 +20,29 @@ We got 10th place :)
 
 ## 🎮 Gameplay
 
-### 🎣 Grappling hook
+-   ### 🎣 Grappling hook
 
 Each player starts with a grappling hook. If any other player touches the grappling hook's line it will lower their health.
 
-### Loot
+-   ### Loot
 
 Loot will be scatered across the map for anyone to collect.
 They are only spawned once per match.
 When you kill other players they will drop their loot.
 Loot is stored in your inventory.
 
-#### 🔫 Guns
+-   #### 🔫 Guns
 
-Guns will serve as an alternative method to damage players.
+    Guns will serve as an alternative method to damage players.
 
-#### ⚗️ Potions
+-   #### ⚗️ Potions
 
-Potions serve as power-ups.
+    Potions serve as power-ups.
 
--   (🏃‍♂️) 2x speed
--   (💖) 25% health - restores 25% of your health
--   (💖) 50% health - restores 50% of your health
--   (❓) enigma crate - contains random loot
+    -   (🏃‍♂️) 2x speed
+    -   (💖) 25% health - restores 25% of your health
+    -   (💖) 50% health - restores 50% of your health
+    -   (❓) enigma crate - contains random loot
 
 ## 👥 Credits
 
