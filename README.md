@@ -25,10 +25,10 @@ Guns are scattered across the map. They are only spawned once per match. When yo
 Potions will also be scattered across the map.
 They will serve as power-ups.
 
-* 2x speed
-* 25% health - restores 25% of your health
-* 50% health - restores 50% of your health
-* enigma crate - contains random loot
+* (🏃‍♂️) 2x speed
+* (💖) 25% health - restores 25% of your health
+* (💖) 50% health - restores 50% of your health
+* (❓) enigma crate - contains random loot
 
 ## 🤝 Contributing to Grapple *(I can't do this all by myself)*
 
