@@ -1,8 +1,8 @@
 # Grapple - a multiplayer RPG game _(a work in progress)_
 
-![](https://img.shields.io/github/license/PoseidonCoder/grapple?style=for-the-badge)
-![](https://img.shields.io/badge/contributions-welcome-orange.svg?style=for-the-badge)
-[![](http://hits.dwyl.com/PoseidonCoder/grapple.svg)](http://hits.dwyl.com/PoseidonCoder/grapple)
+![](https://img.shields.io/github/license/PoseidonCoder/grapple?style=flat-square)
+![](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)
+[![](http://hits.dwyl.com/PoseidonCoder/grapple.svg)](http://hits.dwyl.com/PoseidonCoder/grapple?style=for-the-badge)
 
 Grapple was made to compete in the [Kaboom game jam](https://replit.com/talk/announcements/KABOOM-JAM/127934).
 It is fast paced and requires skill.
