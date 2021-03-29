@@ -18,14 +18,18 @@ Each player starts with a grappling hook. If any other player touches the grappl
 
 ## Loot
 
+Loot will be scatered across the map for anyone to collect.
+They are only spawned once per match.
+When you kill other players they will drop their loot.
+Loot is stored in your inventory.
+
 ### 🔫 Guns
 
-Guns are scattered across the map. They are only spawned once per match. When you kill other players they will drop their loot.
+Guns will serve as an alternative method to damage players.
 
 ### ⚗️ Potions
 
-Potions will also be scattered across the map.
-They will serve as power-ups.
+Potions serve as power-ups.
 
 -   (🏃‍♂️) 2x speed
 -   (💖) 25% health - restores 25% of your health
