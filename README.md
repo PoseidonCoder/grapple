@@ -6,6 +6,8 @@
 
 *TLDR; A fast-paced multiplayer RPG*
 
+## ☀️ Bright beginnings
+
 Grapple was made to compete in the [Kaboom game jam](https://replit.com/talk/announcements/KABOOM-JAM/127934).
 We got 10th place :)
 (no prize for that though).
