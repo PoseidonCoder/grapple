@@ -4,9 +4,9 @@
 ![](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)
 [![](http://hits.dwyl.com/PoseidonCoder/grapple.svg)](http://hits.dwyl.com/PoseidonCoder/grapple?style=for-the-badge)
 
-*TLDR; A fast-paced multiplayer RPG*
+_TLDR; A fast-paced multiplayer RPG_
 
-## ☀️ Bright beginnings
+## ☀️ Bright beginings
 
 Grapple was made to compete in the [Kaboom game jam](https://replit.com/talk/announcements/KABOOM-JAM/127934).
 We got 10th place :)
@@ -14,25 +14,29 @@ We got 10th place :)
 
 ## 🎣 Grappling hook
 
-Each player starts with a grappling hook. If any other player touches the grappling hook's line it will lower their health. 
+Each player starts with a grappling hook. If any other player touches the grappling hook's line it will lower their health.
 
 ## Loot
 
 ### 🔫 Guns
 
-Guns are scattered across the map. They are only spawned once per match. When you kill other players they will drop their loot. 
+Guns are scattered across the map. They are only spawned once per match. When you kill other players they will drop their loot.
 
 ### ⚗️ Potions
 
 Potions will also be scattered across the map.
 They will serve as power-ups.
 
-* (🏃‍♂️) 2x speed
-* (💖) 25% health - restores 25% of your health
-* (💖) 50% health - restores 50% of your health
-* (❓) enigma crate - contains random loot
+-   (🏃‍♂️) 2x speed
+-   (💖) 25% health - restores 25% of your health
+-   (💖) 50% health - restores 50% of your health
+-   (❓) enigma crate - contains random loot
 
-## 🤝 Contributing to Grapple *(I can't do this all by myself)*
+## 👥 Credits
+
+Thanks to my friend for drawing the sprites.
+
+## 🤝 Contributing to Grapple _(I can't do this all by myself)_
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
@@ -42,12 +46,8 @@ They will serve as power-ups.
 
 Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-## 👥 Credits
-
-Thanks to my friend for drawing the sprites.
-
 ## 🤝💰 Support me
 
 by donating to my crypto accounts
 
-* Ethereum: `0xCC27F23C05495a195fAD9f5d370A952cc44261d8`
+-   Ethereum: `0xCC27F23C05495a195fAD9f5d370A952cc44261d8`
