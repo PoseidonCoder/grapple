@@ -12,22 +12,24 @@ Grapple was made to compete in the [Kaboom game jam](https://replit.com/talk/ann
 We got 10th place :)
 (no prize for that though).
 
-## 🎣 Grappling hook
+## 🎮 Gameplay
+
+### 🎣 Grappling hook
 
 Each player starts with a grappling hook. If any other player touches the grappling hook's line it will lower their health.
 
-## Loot
+### Loot
 
 Loot will be scatered across the map for anyone to collect.
 They are only spawned once per match.
 When you kill other players they will drop their loot.
 Loot is stored in your inventory.
 
-### 🔫 Guns
+#### 🔫 Guns
 
 Guns will serve as an alternative method to damage players.
 
-### ⚗️ Potions
+#### ⚗️ Potions
 
 Potions serve as power-ups.
 
