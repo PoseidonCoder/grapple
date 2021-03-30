@@ -1,7 +1,10 @@
 import globals from './globals';
 
 function loadingBar(scene) {
-	const progressBar = scene.add.graphics();
+	const bg = scene.add.graphics();
+	bg.fillStyle(0x6f9c3b);
+	bg.fillRect(0, 0, globals.mapWidth, globals.mapHeight);
+
 	const progressBox = scene.add.graphics();
 	progressBox.fillStyle(0x222222, 0.8);
 	progressBox.fillRect(
@@ -10,6 +13,8 @@ function loadingBar(scene) {
 		320,
 		50
 	);
+
+	const progressBar = scene.add.graphics();
 
 	scene.load.on('progress', (value) => {
 		console.log(value);
@@ -29,6 +34,7 @@ function loadingBar(scene) {
 
 	scene.load.on('complete', () => {
 		console.log('complete');
+		bg.destroy();
 		progressBar.destroy();
 		progressBox.destroy();
 	});
