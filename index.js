@@ -127,5 +127,4 @@ setInterval(() => {
 }, 4000);
 
 app.use(express.static('public'));
-app.use(require('express-status-monitor')());
 http.listen(process.env.PORT || 8080);
