@@ -7,8 +7,17 @@ const io = require('socket.io')(http);
 const redis = require('redis');
 const client = redis.createClient();
 
+app.use(express.json());
+
 let players = {};
 const frameRate = 30;
+
+app.post('/api/createUser', (req, res) => {
+	console.log(req.body);
+	client.HMSET(req.body.id, {
+		name: '',
+	});
+});
 
 io.on('connection', (socket) => {
 	socket.on('ready', () => {

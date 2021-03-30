@@ -79,8 +79,6 @@ class MenuScene extends Phaser.Scene {
 					} else {
 						this.oauth.signIn();
 						this.signInButton.text = 'SIGN OUT';
-
-						console.log(this.oauth.currentUser.get());
 					}
 				});
 			})

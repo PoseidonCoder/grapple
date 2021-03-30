@@ -15,6 +15,22 @@ const loadOauth = new Promise((resolve, reject) => {
 
 	initGapi.then(() => {
 		const oauth = gapi.auth2.getAuthInstance();
+
+		oauth.isSignedIn.listen((status) => {
+			if (!status) return;
+
+			console.log(oauth.currentUser.get());
+			fetch('api/createUser', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify({
+					id: oauth.currentUser.get().tc.id_token,
+				}),
+			}).catch(console.error);
+		});
+
 		resolve(oauth);
 	});
 
