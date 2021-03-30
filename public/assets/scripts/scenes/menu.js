@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import loadOauth from '../util/oauth';
+import oauth from '../util/oauth';
 import loadingBar from '../util/loadingBar';
 
 class MenuScene extends Phaser.Scene {
@@ -59,30 +59,24 @@ class MenuScene extends Phaser.Scene {
 			this.scene.switch('help');
 		});
 
-		loadOauth
-			.then((oauth) => {
-				this.oauth = oauth;
+		this.signInButton = this.add.text(
+			this.cameras.main.centerX - 340,
+			this.cameras.main.centerY + 180,
+			oauth.isSignedIn.get() ? 'SIGN OUT' : 'SIGN IN',
+			textSettings
+		);
 
-				this.signInButton = this.add.text(
-					this.cameras.main.centerX - 340,
-					this.cameras.main.centerY + 180,
-					this.oauth.isSignedIn.get() ? 'SIGN OUT' : 'SIGN IN',
-					textSettings
-				);
+		this.signInButton.setInteractive();
 
-				this.signInButton.setInteractive();
-
-				this.signInButton.on('pointerdown', () => {
-					if (this.oauth.isSignedIn.get()) {
-						this.oauth.signOut();
-						this.signInButton.text = 'SIGN IN';
-					} else {
-						this.oauth.signIn();
-						this.signInButton.text = 'SIGN OUT';
-					}
-				});
-			})
-			.catch(console.error);
+		this.signInButton.on('pointerdown', () => {
+			if (oauth.isSignedIn.get()) {
+				oauth.signOut();
+				this.signInButton.text = 'SIGN IN';
+			} else {
+				oauth.signIn();
+				this.signInButton.text = 'SIGN OUT';
+			}
+		});
 	}
 }
 

@@ -26,7 +26,7 @@ const loadOauth = new Promise((resolve, reject) => {
 					'content-type': 'application/json',
 				},
 				body: JSON.stringify({
-					id: oauth.currentUser.get().tc.id_token,
+					id: oauth.currentUser.get().Qs.zt,
 				}),
 			}).catch(console.error);
 		});
@@ -37,4 +37,4 @@ const loadOauth = new Promise((resolve, reject) => {
 	initGapi.catch(reject);
 });
 
-export default loadOauth;
+export default await loadOauth;

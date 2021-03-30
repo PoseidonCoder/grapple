@@ -13,9 +13,37 @@ let players = {};
 const frameRate = 30;
 
 app.post('/api/createUser', (req, res) => {
-	console.log(req.body);
-	client.HMSET(req.body.id, {
-		name: '',
+	console.log('creating user...');
+	client.HMSET(
+		req.body.id,
+		{
+			name: '',
+		},
+		(error) => {
+			res.json({
+				error,
+			});
+		}
+	);
+});
+
+app.post('/api/getName', (req, res) => {
+	console.log('getting name...');
+	client.HGET(req.body.id, 'name', (error, name) => {
+		console.log(name);
+		res.json({
+			error,
+			name,
+		});
+	});
+});
+
+app.post('/api/setName', (req, res) => {
+	console.log('setting name...');
+	client.HSET(req.body.id, 'name', req.body.name, (error) => {
+		res.json({
+			error,
+		});
 	});
 });
 
