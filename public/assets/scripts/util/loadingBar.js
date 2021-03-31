@@ -8,8 +8,8 @@ function loadingBar(scene) {
 	const progressBox = scene.add.graphics();
 	progressBox.fillStyle(0x384e1c, 0.8);
 	progressBox.fillRect(
-		globals.mapWidth / 2.7,
-		globals.mapHeight / 2.7,
+		globals.mapWidth / 2 - 165,
+		globals.mapHeight / 2,
 		320,
 		50
 	);
@@ -21,12 +21,23 @@ function loadingBar(scene) {
 		progressBar.clear();
 		progressBar.fillStyle(0x587c2f, 1);
 		progressBar.fillRect(
-			globals.mapWidth / 2.7 + 10,
-			globals.mapHeight / 2.7 + 10,
+			globals.mapWidth / 2 + 10 - 165,
+			globals.mapHeight / 2 + 10,
 			300 * value,
 			30
 		);
 	});
+
+	const loadingText = scene.make.text({
+		x: globals.mapWidth / 2,
+		y: globals.mapHeight / 2 - 15,
+		text: 'Loading...',
+		style: {
+			font: '20px monospace',
+			fill: '#ffffff',
+		},
+	});
+	loadingText.setOrigin(0.5, 0.5);
 
 	scene.load.on('fileprogress', (file) => {
 		console.log(file.src);
