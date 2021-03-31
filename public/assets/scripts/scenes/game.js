@@ -3,6 +3,7 @@ import bulletGroup from '../util/bullet';
 import Player from '../util/player';
 import loadingBar from '../util/loadingBar';
 import oauth from '../util/oauth';
+import * as name from '../util/name';
 
 import Phaser from 'phaser';
 
@@ -13,11 +14,13 @@ class GameScene extends Phaser.Scene {
 		});
 	}
 
-	init() {
+	async init() {
 		this.speed = 5;
 		this.score = 0;
 		this.sprintAcceleration = 3;
-		this.name = oauth.isSignedIn.get() ? this.getName() : this.askName();
+		this.name = oauth.isSignedIn.get()
+			? await name.getName()
+			: name.askName();
 	}
 
 	preload() {
@@ -230,39 +233,6 @@ class GameScene extends Phaser.Scene {
 
 	showDelta() {
 		return this.getTime() - this.start;
-	}
-
-	askName() {
-		return prompt('What would you like to be called?');
-	}
-
-	getName() {
-		fetch('api/getName', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify({
-				id: oauth.currentUser.get().Qs.zt,
-			}),
-		})
-			.then((res) => res.json())
-			.then(({ name }) => {
-				name != '' ? (this.name = name) : this.setName();
-			});
-	}
-
-	setName() {
-		fetch('api/setName', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify({
-				id: oauth.currentUser.get().Qs.zt,
-				name: this.askName(),
-			}),
-		});
 	}
 }
 
