@@ -5,6 +5,13 @@ function loadingBar(scene) {
 	bg.fillStyle(0x6f9c3b);
 	bg.fillRect(0, 0, globals.mapWidth, globals.mapHeight);
 
+	const loadingText = scene.make.text({
+		x: globals.mapWidth / 2,
+		y: globals.mapHeight / 2 - 15,
+		text: 'Loading...',
+	});
+	loadingText.setOrigin(0.5, 0.5);
+
 	const progressBox = scene.add.graphics();
 	progressBox.fillStyle(0x384e1c, 0.8);
 	progressBox.fillRect(
@@ -16,24 +23,26 @@ function loadingBar(scene) {
 
 	const progressBar = scene.add.graphics();
 
+	const percentText = scene.make.text({
+		x: globals.mapWidth / 2 - 20,
+		y: globals.mapHeight / 2 + 20,
+	});
+	percentText.setOrigin(0.5, 0.5);
+
 	scene.load.on('progress', (value) => {
 		console.log(value);
 		progressBar.clear();
-		progressBar.fillStyle(0x587c2f, 1);
+		progressBar.fillStyle(0x587c2f);
 		progressBar.fillRect(
 			globals.mapWidth / 2 + 10 - 165,
 			globals.mapHeight / 2 + 10,
 			300 * value,
 			30
 		);
-	});
 
-	const loadingText = scene.make.text({
-		x: globals.mapWidth / 2,
-		y: globals.mapHeight / 2 - 15,
-		text: 'Loading...',
+		percentText.setText(value * 100 + '%');
+		console.log(value * 100 + '%');
 	});
-	loadingText.setOrigin(0.5, 0.5);
 
 	scene.load.on('fileprogress', (file) => {
 		console.log(file.src);
@@ -44,6 +53,7 @@ function loadingBar(scene) {
 		bg.destroy();
 		progressBar.destroy();
 		progressBox.destroy();
+		percentText.destroy();
 	});
 }
 
