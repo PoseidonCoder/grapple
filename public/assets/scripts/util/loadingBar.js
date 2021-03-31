@@ -32,10 +32,6 @@ function loadingBar(scene) {
 		x: globals.mapWidth / 2,
 		y: globals.mapHeight / 2 - 15,
 		text: 'Loading...',
-		style: {
-			font: '20px monospace',
-			fill: '#ffffff',
-		},
 	});
 	loadingText.setOrigin(0.5, 0.5);
 
