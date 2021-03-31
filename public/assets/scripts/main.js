@@ -6,6 +6,7 @@ import HelpScene from './scenes/help';
 import MenuScene from './scenes/menu';
 
 new Phaser.Game({
+	type: Phaser.CANVAS,
 	width:
 		window.innerWidth > globals.mapWidth
 			? globals.mapWidth
