@@ -52,7 +52,7 @@ Thanks to my friend for drawing the sprites.
 
 Please check out [CONTRIBUTING.md](/.github/CONTRIBUTING.md)  _(I can't do this all by myself)_
 
-## 🤝💰 Support me
+## 💰 Support me
 
 by donating to my crypto accounts
 
