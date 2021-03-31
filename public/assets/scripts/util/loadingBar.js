@@ -30,7 +30,7 @@ function loadingBar(scene) {
 	percentText.setOrigin(0.5, 0.5);
 
 	scene.load.on('progress', (value) => {
-		console.log(value);
+		// console.log(value);
 		progressBar.clear();
 		progressBar.fillStyle(0x587c2f);
 		progressBar.fillRect(
@@ -41,15 +41,15 @@ function loadingBar(scene) {
 		);
 
 		percentText.setText(value * 100 + '%');
-		console.log(value * 100 + '%');
+		// console.log(value * 100 + '%');
 	});
 
 	scene.load.on('fileprogress', (file) => {
-		console.log(file.src);
+		// console.log(file.src);
 	});
 
 	scene.load.on('complete', () => {
-		console.log('complete');
+		// console.log('complete');
 		bg.destroy();
 		progressBar.destroy();
 		progressBox.destroy();
