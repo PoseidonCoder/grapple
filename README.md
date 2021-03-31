@@ -43,7 +43,7 @@ Loot is stored in your inventory.
     -   (💖) 25% health - restores 25% of your health
     -   (💖) 50% health - restores 50% of your health
 
--  ❓ Enigma crate
+-  🎁 Enigma crate
     
     Open to reveal random loot.
 
