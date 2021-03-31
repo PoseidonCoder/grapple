@@ -8,7 +8,7 @@
 ![](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)
 [![](http://hits.dwyl.com/PoseidonCoder/grapple.svg)](http://hits.dwyl.com/PoseidonCoder/grapple?style=for-the-badge)
 
-_TLDR; A fast-paced multiplayer RPG_
+Kill as many players as possible to climb the competitive leaderboard.
 
 </div>
 
