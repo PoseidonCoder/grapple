@@ -42,7 +42,10 @@ Loot is stored in your inventory.
     -   (🏃‍♂️) 2x speed
     -   (💖) 25% health - restores 25% of your health
     -   (💖) 50% health - restores 50% of your health
-    -   (❓) enigma crate - contains random loot
+
+-  ❓ Enigma crate
+    
+    Open to reveal random loot.
 
 ## 👥 Credits
 
