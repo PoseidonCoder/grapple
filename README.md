@@ -24,7 +24,7 @@ We got 10th place 😁.
 
 Each player starts with a grappling hook. If any other player touches the grappling hook's line it will lower their health.
 
--   ### Loot
+-   ### 🛠️ Loot
 
 Loot will be scatered across the map for anyone to collect.
 They are only spawned once per match.
