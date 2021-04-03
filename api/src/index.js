@@ -4,8 +4,12 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+const port = 8080;
+
 const redis = require('redis');
-const client = redis.createClient();
+const client = redis.createClient(process.env.REDIS_URL);
+
+client.on('error', console.error);
 
 app.use(express.json());
 
@@ -126,5 +130,6 @@ setInterval(() => {
 	io.emit('leaderboard', leaderboard);
 }, 4000);
 
-app.use(express.static('public'));
-http.listen(process.env.PORT || 8080);
+http.listen(port, () => {
+	console.log(`Listening on port ${port}`);
+});

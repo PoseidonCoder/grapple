@@ -9,8 +9,7 @@
 		"socket.io": "^4.0.0"
 	},
 	"scripts": {
-		"start": "node .",
-		"publish": "cd ./public/ && npx webpack --mode production --progress && git push origin master"
+		"start": "node src/index.js"
 	},
 	"repository": {
 		"type": "git",
