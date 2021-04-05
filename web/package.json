@@ -4,7 +4,6 @@
 	"description": "a multiplayer RPG game",
 	"main": "index.js",
 	"devDependencies": {
-		"speed-measure-webpack-plugin": "^1.4.2",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^5.27.1",
 		"webpack-cli": "^4.5.0"
@@ -28,6 +27,7 @@
 	"homepage": "https://github.com/PoseidonCoder/grapple#readme",
 	"dependencies": {
 		"phaser": "^3.53.1",
-		"socket.io-client": "^4.0.0"
+		"socket.io-client": "^4.0.0",
+		"speed-measure-webpack-plugin": "^1.5.0"
 	}
 }

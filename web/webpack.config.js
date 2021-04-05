@@ -5,13 +5,13 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = (env) => {
 	return {
 		mode: env.production ? 'production' : 'development',
-		cache: true,
 		entry: {
 			main: './assets/scripts/main.js',
 		},
 		output: {
 			path: path.resolve(__dirname, 'assets/dist'),
-			filename: 'main.js',
+			filename: '[name].js',
+			clean: true,
 		},
 		optimization: {
 			minimizer: [
@@ -20,6 +20,16 @@ module.exports = (env) => {
 					cache: true,
 				}),
 			],
+			runtimeChunk: 'single',
+			splitChunks: {
+				cacheGroups: {
+					vendor: {
+						test: /[\\/]node_modules[\\/]/,
+						name: 'vendors',
+						chunks: 'all',
+					},
+				},
+			},
 		},
 		experiments: {
 			topLevelAwait: true,
