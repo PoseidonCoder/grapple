@@ -4,6 +4,7 @@
 	"description": "a multiplayer RPG game",
 	"main": "index.js",
 	"dependencies": {
+		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"redis": "^3.0.2",
 		"socket.io": "^4.0.0"

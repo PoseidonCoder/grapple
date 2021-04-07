@@ -1,8 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+	cors: {
+		origin: '*',
+		methods: ['GET', 'POST'],
+	},
+});
 
 const port = 8080;
 
@@ -11,6 +17,7 @@ const client = redis.createClient(process.env.REDIS_URL);
 
 client.on('error', console.error);
 
+app.use(cors());
 app.use(express.json());
 
 let players = {};
