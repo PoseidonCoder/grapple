@@ -37,4 +37,9 @@ const loadOauth = new Promise((resolve, reject) => {
 	initGapi.catch(reject);
 });
 
+loadOauth.catch((error) => {
+	console.log('Error loading oauth!');
+	console.log(error);
+});
+
 export default await loadOauth;

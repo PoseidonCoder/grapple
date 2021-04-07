@@ -1,5 +1,3 @@
-console.log(`We are ${PRODUCTION ? '' : 'not'} in production`);
-
 const io = require('socket.io-client');
 const endpoint = PRODUCTION
 	? 'http://api.grapply.ga/'

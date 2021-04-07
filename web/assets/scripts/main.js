@@ -1,3 +1,5 @@
+console.log(`We are ${PRODUCTION ? '' : 'not'} in production`);
+
 import globals from './util/globals';
 import Phaser from 'phaser';
 

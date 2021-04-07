@@ -3,10 +3,7 @@ const MeasureSpeed = require('speed-measure-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-	entry: {
-		main: './assets/scripts/main.js',
-	},
-	plugins: [new MeasureSpeed()],
+	entry: './assets/scripts/main.js',
 	output: {
 		path: path.resolve(__dirname, 'assets/dist'),
 		filename: '[name].bundle.js',
@@ -33,4 +30,5 @@ module.exports = {
 	experiments: {
 		topLevelAwait: true,
 	},
+	plugins: [new MeasureSpeed()],
 };
