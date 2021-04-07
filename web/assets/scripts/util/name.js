@@ -34,7 +34,7 @@ export const getName = () => {
 		})
 			.then((res) => res.json())
 			.then(async ({ name }) => {
-				resolve(name != '' ? name : await this.setName());
+				resolve(name != '' ? name : await setName());
 			});
 	});
 };
