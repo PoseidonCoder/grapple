@@ -1,3 +1,5 @@
+console.log(`We are ${PRODUCTION ? '' : 'not'} in production`);
+
 const io = require('socket.io-client');
 
 export default {
