@@ -1,3 +1,4 @@
+import { endpoint } from './globals';
 import oauth from './oauth';
 
 export const askName = () => prompt('What would you like to be called?');
@@ -5,7 +6,7 @@ export const askName = () => prompt('What would you like to be called?');
 export const setName = () => {
 	return new Promise((resolve, reject) => {
 		const name = askName();
-		fetch('api/setName', {
+		fetch(endpoint + 'api/setName', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -22,7 +23,7 @@ export const setName = () => {
 
 export const getName = () => {
 	return new Promise((resolve, reject) => {
-		fetch('api/getName', {
+		fetch(endpoint + 'api/getName', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

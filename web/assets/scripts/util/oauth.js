@@ -1,3 +1,5 @@
+import { endpoint } from './globals';
+
 const loadOauth = new Promise((resolve, reject) => {
 	const initGapi = new Promise((resolve, reject) => {
 		gapi.load('client', () => {
@@ -20,7 +22,7 @@ const loadOauth = new Promise((resolve, reject) => {
 			if (!status) return;
 
 			console.log(oauth.currentUser.get());
-			fetch('api/createUser', {
+			fetch(endpoint + 'api/createUser', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json',
