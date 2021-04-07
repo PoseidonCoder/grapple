@@ -6,4 +6,5 @@ export default {
 	socket: io(),
 	mapHeight: 1000,
 	mapWidth: 2000,
+	endpoint: PRODUCTION ? 'http://api.grapply.ga/' : 'http://localhost:8080/',
 };
