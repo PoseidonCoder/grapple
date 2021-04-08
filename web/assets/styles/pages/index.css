@@ -1,9 +1,9 @@
-#menuScreen {
+#menuButtons {
 	display: flex;
 	flex-direction: column;
 }
 
-#menuScreen button {
+#menuButtons button {
 	margin: 1%;
 	padding: 2%;
 }

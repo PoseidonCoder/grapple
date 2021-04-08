@@ -38,21 +38,28 @@
 			that this site can work properly
 		</noscript>
 
-		<main>
-			<div id="menuScreen">
-				<button id="playButton">play</button>
-				<button onclick="window.location.replace('/help.html')">
-					help
-				</button>
-				<button id="loginButton">sign in</button>
-			</div>
-		</main>
-
-		<footer>
-			<a target="_blank" href="https://github.com/PoseidonCoder/grapple">
-				GitHub
-			</a>
-		</footer>
+		<div id="menuScreen">
+			<main>
+				<div class="container">
+					<h1 class="center">Grapple</h1>
+					<div id="menuButtons">
+						<button id="playButton">play</button>
+						<button onclick="window.location.replace('/help.html')">
+							help
+						</button>
+						<button id="loginButton">sign in</button>
+					</div>
+				</div>
+			</main>
+			<footer>
+				<a
+					target="_blank"
+					href="https://github.com/PoseidonCoder/grapple"
+				>
+					GitHub
+				</a>
+			</footer>
+		</div>
 
 		<script defer src="/dist/runtime.bundle.js"></script>
 		<script defer src="/dist/vendors.bundle.js"></script>
