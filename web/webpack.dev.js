@@ -7,9 +7,15 @@ const { DefinePlugin } = require('webpack');
 module.exports = merge(common, {
 	mode: 'development',
 	devServer: {
-		contentBase: path.join(__dirname, 'assets/dist'),
+		contentBase: 'assets',
 		compress: true,
+		open: true,
 		port: 8000,
+	},
+	output: {
+		path: path.resolve(__dirname, 'assets/dist'),
+		filename: '[name].bundle.js',
+		clean: true,
 	},
 	plugins: [
 		new DefinePlugin({

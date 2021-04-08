@@ -7,6 +7,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'assets/dist'),
 		filename: '[name].bundle.js',
+		publicPath: '/dist',
 		clean: true,
 	},
 	optimization: {
