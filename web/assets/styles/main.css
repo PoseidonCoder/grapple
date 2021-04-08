@@ -3,9 +3,9 @@
 }
 
 * {
-	outline: none;
 	font-size: 1vw;
 	color: whitesmoke;
+	outline: none;
 }
 
 body {
@@ -22,7 +22,7 @@ button {
 	cursor: pointer;
 	text-transform: uppercase;
 	font-weight: bold;
-	background-color: rgb(83, 133, 8);
+	background-color: rgb(72, 99, 31);
 }
 
 button:hover {
@@ -39,7 +39,7 @@ a {
 }
 
 .container {
-	background-color: rgb(61, 99, 4);
+	background-color: rgb(8, 110, 51);
 	padding: 1vw;
 	width: 50%;
 	border-radius: 10px;
