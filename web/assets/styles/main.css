@@ -13,6 +13,17 @@ body {
 	overflow: hidden;
 	background-image: url(../images/grass.png);
 	background-repeat: repeat;
+	animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+	from {
+		background-position: 0vw 0vh;
+	}
+
+	to {
+		background-position: 150vw 150vh;
+	}
 }
 
 button {
