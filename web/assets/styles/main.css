@@ -56,3 +56,13 @@ a {
 	border-radius: 10px;
 	margin: auto;
 }
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgb(8, 110, 51);
+	text-align: center;
+	padding: 1vw;
+}
