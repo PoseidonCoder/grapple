@@ -2,11 +2,43 @@
 	font-family: courier, arial, helvetica;
 }
 
+* {
+	outline: none;
+	font-size: 1vw;
+}
+
 body {
 	margin: 0;
 	overflow: hidden;
+	background-image: url(../images/grass.png);
+	background-repeat: repeat;
 }
 
 button {
+	color: whitesmoke;
+	border-color: transparent;
+	transition: transform 0.4s, border-color 0.7s;
 	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: rgb(83, 133, 8);
+}
+
+button:hover {
+	border-color: whitesmoke;
+}
+
+button:active {
+	transform: scale(0.9);
+}
+
+#menuScreen {
+	display: flex;
+	flex-direction: column;
+}
+
+#menuScreen button {
+	margin: 1%;
+	padding: 2%;
+	border-radius: 10px;
 }
