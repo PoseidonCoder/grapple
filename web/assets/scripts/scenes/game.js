@@ -24,13 +24,13 @@ class GameScene extends Phaser.Scene {
 	}
 
 	preload() {
-		this.load.image('player', 'assets/images/player.png');
-		this.load.image('bullet', 'assets/images/bullet.png');
-		this.load.image('enemy', 'assets/images/enemy.png');
-		this.load.image('grass', 'assets/images/grass.png');
+		this.load.image('player', 'images/player.png');
+		this.load.image('bullet', 'images/bullet.png');
+		this.load.image('enemy', 'images/enemy.png');
+		this.load.image('grass', 'images/grass.png');
 
-		this.load.audio('pew', 'assets/sounds/shoot.mp3');
-		this.load.audio('music', 'assets/sounds/music.mp3');
+		this.load.audio('pew', 'sounds/shoot.mp3');
+		this.load.audio('music', 'sounds/music.mp3');
 
 		loadingBar(this);
 	}

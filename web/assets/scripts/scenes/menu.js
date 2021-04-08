@@ -11,7 +11,7 @@ class MenuScene extends Phaser.Scene {
 	}
 
 	preload() {
-		this.load.image('grass', 'assets/images/grass.png');
+		this.load.image('grass', 'images/grass.png');
 
 		loadingBar(this);
 	}
