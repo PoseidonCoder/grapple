@@ -1,0 +1,9 @@
+#menuScreen {
+	display: flex;
+	flex-direction: column;
+}
+
+#menuScreen button {
+	margin: 1%;
+	padding: 2%;
+}

@@ -4,8 +4,6 @@ import globals from './util/globals';
 import Phaser from 'phaser';
 
 import GameScene from './scenes/game';
-import HelpScene from './scenes/help';
-import MenuScene from './scenes/menu';
 
 let menuScreen, playButton;
 
@@ -43,6 +41,6 @@ function startGame() {
 				debug: false,
 			},
 		},
-		scene: [MenuScene, HelpScene, GameScene],
+		scene: [GameScene],
 	});
 }

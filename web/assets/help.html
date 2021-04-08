@@ -5,12 +5,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="stylesheet" href="/styles/main.css" />
-		<link rel="stylesheet" href="/styles/pages/index.css" />
+		<link rel="stylesheet" href="styles/main.css" />
 
 		<link
 			rel="shortcut icon"
-			href="/images/player.png"
+			href="images/player.png"
 			type="image/x-icon"
 		/>
 
@@ -33,19 +32,22 @@
 			gtag('config', 'G-7DFTRDPTLF');
 		</script>
 
-		<noscript>
-			You have disabled Javascript for this website, please enable it so
-			that this site can work properly
-		</noscript>
+		<main class="container">
+			<a href="/">
+				<button>back</button>
+			</a>
 
-		<main>
-			<div id="menuScreen">
-				<button id="playButton">play</button>
-				<button onclick="window.location.replace('/help.html')">
-					help
-				</button>
-				<button>sign out</button>
-			</div>
+			<h2>How to play:</h2>
+			<ul>
+				<li>Use wasd keys to move</li>
+				<li>Hold down the cursor to shoot</li>
+				<li>Shoot the other players in order to earn points</li>
+			</ul>
+
+			<h2>Tip:</h2>
+			<ul>
+				<li>Hold shift to sprint</li>
+			</ul>
 		</main>
 
 		<script defer src="/dist/runtime.bundle.js"></script>
