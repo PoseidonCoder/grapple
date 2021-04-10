@@ -1,12 +1,13 @@
 <div align="center">
 
-![](./public/assets/images/player.png)
+![](./web/assets/images/player.png)
 
 # Grapple (2.0 - major revamp)
 
 ![](https://img.shields.io/github/license/PoseidonCoder/grapple?style=flat-square)
 ![](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)
 [![](http://hits.dwyl.com/PoseidonCoder/grapple.svg)](http://hits.dwyl.com/PoseidonCoder/grapple?style=for-the-badge)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c674fa56-6a6d-459e-86a7-682611b6f377/deploy-status)](https://app.netlify.com/sites/grapple/deploys)
 
 Kill as many players as possible to climb the competitive leaderboard.
 
@@ -43,8 +44,7 @@ Loot is stored in your inventory.
     -   (💖) 25% health - restores 25% of your health
     -   (💖) 50% health - restores 50% of your health
 
--  🎁 Enigma crate
-    
+-   🎁 Enigma crate
     Open to reveal random loot.
 
 ## 👥 Credits
@@ -53,7 +53,7 @@ Thanks to my friend for drawing the sprites.
 
 ## 🤝 Contributing to Grapple
 
-Please check out [CONTRIBUTING.md](/.github/CONTRIBUTING.md)  _(I can't do this all by myself)_
+Please check out [CONTRIBUTING.md](/.github/CONTRIBUTING.md) _(I can't do this all by myself)_
 
 ## 💰 Support me
 
