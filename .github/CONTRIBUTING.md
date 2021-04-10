@@ -1,10 +1,16 @@
 # Contributing
 
 We have very loose contributing rules.
-You can contribute *anything* you want and we will review it.
+You can contribute _anything_ you want and we will review it.
 To contribute, simply make a pull request.
 
-## How to make a pull request 
+## Branch explanation
+
+-   **Master** is production (don't touch)
+-   **Staging** is the development branch (make pull requests to this branch)
+
+## How to make a pull request
+
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
 3. Make your changes and commit them: `git commit -m '<commit_message>'`
