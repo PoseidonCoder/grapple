@@ -40,7 +40,7 @@ function loadingBar(scene) {
 			30
 		);
 
-		percentText.setText(value * 100 + '%');
+		percentText.setText(Math.round(value * 100) + '%');
 		// console.log(value * 100 + '%');
 	});
 
