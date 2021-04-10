@@ -15,9 +15,9 @@ class GameScene extends Phaser.Scene {
 	}
 
 	async init() {
-		this.speed = 5;
+		this.speed = 10;
+		this.sprintAcceleration = 2;
 		this.score = 0;
-		this.sprintAcceleration = 3;
 		this.name = oauth.isSignedIn.get()
 			? await name.getName()
 			: name.askName();
