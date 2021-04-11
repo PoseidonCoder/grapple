@@ -1,11 +1,10 @@
 const io = require('socket.io-client');
-const endpoint = PRODUCTION
-	? 'http://api.grapply.ga/'
-	: 'http://localhost:8080/';
 
 module.exports = {
-	socket: io(endpoint),
+	socket: io(
+		PRODUCTION ? 'http://socket.api.grapply.ga/' : 'http://localhost:7070/'
+	),
 	mapHeight: 1000,
 	mapWidth: 2000,
-	endpoint,
+	endpoint: PRODUCTION ? 'http://api.grapply.ga/' : 'http://localhost:8080/',
 };
