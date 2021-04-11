@@ -1,16 +1,31 @@
 version: '3'
 services:
-    redis:
+    usersDB:
         image: redis
-        container_name: cache
+        container_name: users
         expose:
             - 6379
 
+    gameDB:
+        image: redis
+        container_name: game
+        ports:
+            - 9000:6379
+        expose:
+            - 9000
+
     api:
-        build: ./api/
+        image: grapple_api
         links:
-            - redis
+            - usersDB
         environment:
-            - REDIS_URL=redis://cache
+            - REDIS_URL=redis://users
         ports:
             - 8080:8080
+
+    socket:
+        image: socket
+        ports:
+            - 7070:7070
+        environment:
+            - REDIS_URL=redis://game

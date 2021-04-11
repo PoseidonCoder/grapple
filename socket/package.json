@@ -1,0 +1,28 @@
+{
+	"name": "socket",
+	"version": "1.0.0",
+	"description": "The socker server for grapple",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PoseidonCoder/grapple.git"
+	},
+	"keywords": [
+		"socket.io",
+		"game",
+		"grapple"
+	],
+	"author": "Lukas Dobbles",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/PoseidonCoder/grapple/issues"
+	},
+	"homepage": "https://github.com/PoseidonCoder/grapple#readme",
+	"dependencies": {
+		"redis": "^3.1.0",
+		"socket.io": "^4.0.1"
+	}
+}
