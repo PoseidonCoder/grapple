@@ -49,7 +49,17 @@ Loot is stored in your inventory.
 
 ## 👥 Credits
 
+### 🎨 Art
+
 Thanks to my friend for drawing the sprites.
+
+### 👨‍💻 Code contributors
+
+<a href="https://github.com/PoseidonCoder/grapple/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PoseidonCoder/grapple" />
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
 
 ## 🤝 Contributing to Grapple
 
