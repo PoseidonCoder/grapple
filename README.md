@@ -9,7 +9,7 @@
 [![](http://hits.dwyl.com/PoseidonCoder/grapple.svg)](http://hits.dwyl.com/PoseidonCoder/grapple?style=for-the-badge)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c674fa56-6a6d-459e-86a7-682611b6f377/deploy-status)](https://app.netlify.com/sites/grapple/deploys)
 
-Fast paced, competetive slaughter
+⚔ fast paced, competetive slaughter
 
 </div>
 
